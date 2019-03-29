@@ -1,0 +1,32 @@
+# This is a sample build configuration for Ruby.
+# Check our guides at https://confluence.atlassian.com/x/VYk8Lw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: ruby:2.4.0
+
+pipelines:
+  default:
+    - step:
+        script: # Modify the commands below to build your repository.
+          - bundler --version
+          - bundle install
+          - bundle exec jekyll build
+          - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
+  branches:
+    master:
+      - step:
+          script:
+            - bundler --version
+            - bundle install
+            - bundle exec jekyll build -t
+            - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
+            - git clone https://github.com/mikeodling-smee/f4h-docs.git
+            - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
+            - cd f4h-docs
+            - git config --global user.email "mike.odlingsmee@gmail.com"
+            - git config --global user.name "Michael Odling-Smee"
+            - git config --global push.default simple
+            - git add --all
+            - git commit -m "Website auto build on `date`"
+            - git push https://$githubtoken@github.com/mikeodling-smee/f4h-docs.git
