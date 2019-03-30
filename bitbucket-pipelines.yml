@@ -31,3 +31,7 @@ pipelines:
             - git add --all
             - git commit -m "Website auto build on `date`"
             - git push https://$githubtoken@github.com/mikeodling-smee/f4h-docs.git
+
+definitions:
+  caches:
+    bundler: ./vendor
