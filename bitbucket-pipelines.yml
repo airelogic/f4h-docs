@@ -21,6 +21,7 @@ pipelines:
             - bundle install
             - bundle exec jekyll build -t
             - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
+            - bundle exec jekyll build -t --baseurl 'f4h-docs'
             - git clone https://github.com/mikeodling-smee/f4h-docs.git
             - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
             - cd f4h-docs
