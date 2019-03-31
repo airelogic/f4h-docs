@@ -11,7 +11,7 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - bundler --version
           - bundle install
-          - bundle exec jekyll build
+          - JEKYLL_ENV=production bundle exec jekyll build -t
           - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
   branches:
     master:
@@ -19,9 +19,8 @@ pipelines:
           script:
             - bundler --version
             - bundle install
-            #- bundle exec jekyll build -t --baseurl ""
-            #- bundle exec htmlproofer ./_site --url-ignore "/#.*/"
-            - bundle exec jekyll build -t
+            - JEKYLL_ENV=production bundle exec jekyll build -t
+            - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
             - git clone https://github.com/airelogic/f4h-docs.git
             - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
             - cd f4h-docs
