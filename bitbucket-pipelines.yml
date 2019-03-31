@@ -19,8 +19,8 @@ pipelines:
           script:
             - bundler --version
             - bundle install
-            - bundle exec jekyll build -t --baseurl ''
-            - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
+#            - bundle exec jekyll build -t --baseurl ''
+#            - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
             - bundle exec jekyll build -t
             - git clone https://github.com/airelogic/f4h-docs.git
             - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
