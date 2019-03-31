@@ -22,15 +22,15 @@ pipelines:
             - bundle exec jekyll build -t --baseurl ''
             - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
             - bundle exec jekyll build -t
-            - git clone https://github.com/mikeodling-smee/f4h-docs.git
+            - git clone https://github.com/airelogic/f4h-docs.git
             - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
             - cd f4h-docs
-            - git config --global user.email "mike.odlingsmee@gmail.com"
+            - git config --global user.email "mike.odling-smee@airelogic.com"
             - git config --global user.name "Michael Odling-Smee"
             - git config --global push.default simple
             - git add --all
             - git commit -m "Website auto build on `date`"
-            - git push https://$githubtoken@github.com/mikeodling-smee/f4h-docs.git
+            - git push https://$githubtoken@github.com/airelogic/f4h-docs.git
 
 definitions:
   caches:
