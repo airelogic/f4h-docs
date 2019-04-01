@@ -14,14 +14,34 @@ To publish a new version of the site simply follow the process below:
 1. Make your local edits on one or more files.
 1. _commit_ your changes to your (local) _git_ repository
 1. _push_ your changes to Bitbucket
-1. A build should automatically kick off on bitbucket that will generate the HTML files, check links and ...
+1. A build should automatically kick off on bitbucket that will generate the HTML files, check links etc. and then...
 1. _push_ the changes to the github.io site (which will subsequently make the content available via the [https://docs.forms4health.com](https://docs.forms4health.com) website
-1. [Optionally] Check the `#builds-and-jira` slack channel.
+
+Whilst you can log into Bitbucket to observer the build (click on Pipeline) you can also monitor the `#builds-and-jira` Aire Logic slack channel for any issues.
+
+![Publication Process](./assets/Jekyll-build-process.png "Build Process")
 
 ## Building the site locally
 
+To build the site locally follow the [Jekyll Quickstart](https://jekyllrb.com/docs/) instructions to get up and running (including installing Ruby). Once you have a working environment:
 
-## Details on the Docs template are below
+```bash
+cd f4h-doc
+bundle install
+```
+
+To run the site
+
+```bash
+bundle exec jekyll serve -I
+```
+
+The `-I` indicates interactive mode such that all changes should be reflected on your local website upon save (however is not perfect so you may need to `Ctl-Z` and re-run the command).
+
+The site should be available locally on [http://localhost:4000](http://localhost:4000).
+
+
+## Details on the template we have purchased for the project are below for reference.
 
 Desk was developed by [Ivan Chromjak](https://ivanchromjak.com) for [jekyll.plus](https://jekyll.plus/), theme [live demo](https://docs.jekyll.plus/) available.
 
@@ -187,7 +207,7 @@ Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit number
 2012-09-12-how-to-write-a-blog.md
 ```
 
-Post requires front matter, everything in between the first and second --- are part of the YAML Front Matter, and everything after the second --- will be rendered with Markdown and show up as “Content”.
+Post requires front matter, everything in between the first and second --- are part of the YAML Front Matter, and everything after the second --- will be rendered with Markdown and show up as ï¿½Contentï¿½.
 The following is a post file with different configurations you can add as example:
 
 ```yaml
