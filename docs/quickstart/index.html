@@ -11,15 +11,15 @@
 <meta property="og:title" content="Getting started building a form" />
 <meta name="author" content="Lauren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Quick start guide to forms4health" />
-<meta property="og:description" content="Quick start guide to forms4health" />
+<meta name="description" content="This guide is to help you get started with using forms4health and building forms." />
+<meta property="og:description" content="This guide is to help you get started with using forms4health and building forms." />
 <link rel="canonical" href="https://docs.forms4health.com/docs/quickstart/" />
 <meta property="og:url" content="https://docs.forms4health.com/docs/quickstart/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-01T10:22:45+00:00" />
+<meta property="article:published_time" content="2019-04-01T11:31:19+00:00" />
 <script type="application/ld+json">
-{"description":"Quick start guide to forms4health","author":{"@type":"Person","name":"Lauren"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/quickstart/","headline":"Getting started building a form","dateModified":"2019-04-01T10:22:45+00:00","datePublished":"2019-04-01T10:22:45+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/quickstart/"},"@context":"https://schema.org"}</script>
+{"description":"This guide is to help you get started with using forms4health and building forms.","author":{"@type":"Person","name":"Lauren"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/quickstart/","headline":"Getting started building a form","dateModified":"2019-04-01T11:31:19+00:00","datePublished":"2019-04-01T11:31:19+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/quickstart/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -201,7 +201,7 @@
 
                     <h1 class="uk-article-title">Getting started building a form</h1>
 
-                    <p class="subtitle uk-text-lead uk-text-muted">Learn about the basics of what a form is made of and assemble your first form</p>
+                    <p class="subtitle uk-text-lead uk-text-muted">Learn the basics of form building and build your first form</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -210,7 +210,7 @@
 
 
 
-<time datetime="2019-04-01T10:22:45+00:00" itemprop="datePublished">
+<time datetime="2019-04-01T11:31:19+00:00" itemprop="datePublished">
     
     Apr 1, 2019
 </time>
@@ -218,40 +218,43 @@
                     </div>
 
                     <div class="article-content">
-                        <h1 id="quick-start-guide-to-forms4health">Quick start guide to forms4health</h1>
-
-<p>This guide is to help you get started with using forms4health and building forms.</p>
+                        <p>This guide is to help you get started with using forms4health and building forms.</p>
 
 <p>What you can find on this page:</p>
 <ul>
-  <li><a href="#important-forms4health-concepts"><strong>Important forms4heath concepts</strong></a></li>
-  <li><a href="#build-your-first-forms4health-form"><strong>Build your first forms4health form</strong></a></li>
+  <li><a href="#important-forms4health-concepts">Important forms4health concepts</a></li>
+  <li><a href="#build-your-first-forms4health-form">Build your first forms4health form</a></li>
+  <li><a href="#1-customise-a-new-building-block">1. Customise a new building block</a></li>
+  <li><a href="#2-add-a-basic-control">2. Add a basic control</a></li>
+  <li><a href="#3-preview-the-building-block">3. Preview the building block</a></li>
+  <li><a href="#4-add-the-building-block-to-a-new-form">4. Add the building block to a new form</a></li>
+  <li><a href="#5-publish-the-form">5. Publish the form</a></li>
 </ul>
 
-<h2 id="important-forms4health-concepts"><strong>Important forms4health concepts</strong></h2>
+<h2 id="important-forms4health-concepts">Important forms4health concepts</h2>
 <p>The diagram shows the structure and components of a forms4health form. Each of the concepts is explained below to help you understand how forms are built.</p>
 
 <p><img src="/assets/f4h-concepts-diagram.png" alt="f4h concepts" /></p>
 
-<p><em><strong>Building block:</strong></em> this is probably the most important concept in form building. A building block is a collection of resources and instructions (i.e. data fields and rules) for capturing data in a way defined by the user. Building blocks are at the core of the structure and content of a form. Every form starts with one or more building blocks and they are reusable across multiple forms.</p>
+<p><em>Building block:</em> this is probably the most important concept in form building. A building block is a collection of resources and instructions (i.e. data fields and rules) for capturing data in a way defined by the user. Building blocks are at the core of the structure and content of a form. Every form starts with one or more building blocks and they are reusable across multiple forms.</p>
 
-<p><em><strong>Control:</strong></em> this is a way of the user defining rules around what data can be captured and how it is captured. For example, a common control would be making a field ‘required’, so that it has to be filled in to continue.</p>
+<p><em>Control:</em> this is a way of the user defining rules around what data can be captured and how it is captured. For example, a common control would be making a field ‘required’, so that it has to be filled in to continue.</p>
 
-<p><em><strong>Form:</strong></em> a collection of one or more building blocks that together make up the complete set of data capture fields and instructions that the user requires. The form makes up the complete dataset that will be collected.</p>
+<p><em>Form:</em> a collection of one or more building blocks that together make up the complete set of data capture fields and instructions that the user requires. The form makes up the complete dataset that will be collected.</p>
 
-<p><em><strong>Page:</strong></em>  a page is the visual separation of building block content for end-users. A page can include one or more building blocks. How a page is displayed depends on the type of form.</p>
+<p><em>Page:</em>  a page is the visual separation of building block content for end-users. A page can include one or more building blocks. How a page is displayed depends on the type of form.</p>
 
-<p><em><strong>Reference data:</strong></em> this is optional data that can be used to populate options on dop-down menus and multi-select data items. Reference data can be updated without having to manually update the form.</p>
+<p><em>Reference data:</em> this is optional data that can be used to populate options on dop-down menus and multi-select data items. Reference data can be updated without having to manually update the form.</p>
 
-<p><em><strong>Section:</strong></em> a visual separation of one or more controls, or for grouped data items. One or more sections can make up a building block.</p>
+<p><em>Section:</em> a visual separation of one or more controls, or for grouped data items. One or more sections can make up a building block.</p>
 
-<h2 id="build-your-first-forms4health-form"><strong>Build your first forms4health form</strong></h2>
+<h2 id="build-your-first-forms4health-form">Build your first forms4health form</h2>
 
 <p>There are five short steps to building your first form. Watch the video walkthroughs below, taking you from building block to published form. You’ll have your first form published in just a few minutes.</p>
 
-<h2 id="1-customise-a-new-building-block"><strong>1. Customise a new building block</strong></h2>
+<h2 id="1-customise-a-new-building-block">1. Customise a new building block</h2>
 
-<p>The short video below shows you how to build a basic forms4health form. The form is to collect <strong>patient details</strong> information including: name, date of birth, address and contact details.</p>
+<p>The short video below shows you how to build a basic forms4health form. The form is to collect <em>patient details</em> information including: name, date of birth, address and contact details.</p>
 
 <p>Some tips:</p>
 <ul>
@@ -265,26 +268,26 @@
 
 <p>TODO - Link pdf doc with step-by-step written instructions about how to build simple form</p>
 
-<h2 id="2-add-a-basic-control"><strong>2. Add a basic control</strong></h2>
+<h2 id="2-add-a-basic-control">2. Add a basic control</h2>
 <p>You might want to add some basic controls around the data fields in your building block, for example, making a field ‘required’ (or mandatory) so it has to be completed by the end-user to continue to the next step.</p>
 
 <p>The following video shows you how to set two types of controls: required field and date-of-birth control. When you have made any further changes to your building block, click save at the bottom of the page.</p>
 
 <p><img src="/assets/screenshots/add-basic-control-captioned-progress.gif" alt="add a basic control" /></p>
 
-<h2 id="3-preview-the-building-block"><strong>3. Preview the building block</strong></h2>
+<h2 id="3-preview-the-building-block">3. Preview the building block</h2>
 <p>At this stage you can preview the building block to view the layout and data fields that you’ve customised. Enter data into each field and test any controls you’ve added by clicking the <em>submit</em> button at the bottom of the page.</p>
 
 <p><img src="/assets/screenshots/preview-building-block-progress.gif" alt="preview building block" /></p>
 
-<h2 id="4-add-the-building-block-to-a-new-form"><strong>4. Add the building block to a new form</strong></h2>
+<h2 id="4-add-the-building-block-to-a-new-form">4. Add the building block to a new form</h2>
 <p>Next, you need to add the customised building block to a form. Start by importing the building block and adding it to a new form. Add a page into the form and add your building block into the page.</p>
 
 <p>You have the option save or preview and test your new form from here too.</p>
 
 <p><img src="/assets/screenshots/quick-start-add-building-block-to-form1-with-progress.gif" alt="add building block to new form" /></p>
 
-<h2 id="5-publish-the-form"><strong>5. Publish the form</strong></h2>
+<h2 id="5-publish-the-form">5. Publish the form</h2>
 <p>After making any final changes required, you’re now ready to make the form available to your users.</p>
 
 <p>TODO - Insert gif of completing and publishing the form</p>
