@@ -1,8 +1,31 @@
-# Docs is a premium documentation Jekyll theme
+# Forms4health help documentation project
+
+This project holds the online knowledge base for people wishing to learn to build forms4health forms. The project contains both the Jekyll template files as well as the specific help content.
+
+## Adding / editing new content
+
+Most of the content you are likely to edit will be either in the `_docs` or `_posts` folders. In general `_docs` is for static content, whilst `_posts` is more for blog/news. If you want to create some draft content that you would like backed up but not published then add it to the `_draft` folder. 
+All media ssuch as pictures, animated gifs and videos hould be added to the `assets` folder.
+
+## Publication process
+
+To publish a new version of the site simply follow the process below:
+
+1. Make your local edits on one or more files.
+1. _commit_ your changes to your (local) _git_ repository
+1. _push_ your changes to Bitbucket
+1. A build should automatically kick off on bitbucket that will generate the HTML files, check links and ...
+1. _push_ the changes to the github.io site (which will subsequently make the content available via the [https://docs.forms4health.com](https://docs.forms4health.com) website
+1. [Optionally] Check the `#builds-and-jira` slack channel.
+
+## Building the site locally
+
+
+## Details on the Docs template are below
 
 Desk was developed by [Ivan Chromjak](https://ivanchromjak.com) for [jekyll.plus](https://jekyll.plus/), theme [live demo](https://docs.jekyll.plus/) available.
 
-## Features
+### Features
 
 * Contact form
 * Live Search
@@ -21,7 +44,7 @@ Desk was developed by [Ivan Chromjak](https://ivanchromjak.com) for [jekyll.plus
 * Google Analytics
 
 
-## Installation
+### Installation
 
 Install the dependencies with [Bundler](http://bundler.io/):
 
@@ -36,9 +59,9 @@ bundle exec jekyll serve
 
 You can find more on [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
 
-## Setup
+### Setup
 
-### Site and author details
+#### Site and author details
 Add your site and author details in `_config.yml`:
 ```yaml
 # Site title and description
@@ -85,14 +108,14 @@ twitter_username:
 
 ```
 
-### Navigation Bar
+#### Navigation Bar
 Set in the main navigation links in `_data/navigation_header.yml`:
 ```yaml
 - title: About
   url: /about/
 ```
 
-### Footer
+#### Footer
 
 Edit copyright notice in `_config.yml`:
 ```yaml
@@ -106,7 +129,7 @@ Set in the navigation links in `_data/navigation_footer.yml`:
   url: /about/
 ```
 
-### Enabling comments (via Disqus)
+#### Enabling comments (via Disqus)
 
 Optionally, if you have a Disqus account, you can tell Jekyll to use it to show a comments section below each post. To enable it, add the following lines to your Jekyll site:
 
@@ -119,7 +142,7 @@ You can find out more about Disqus' shortnames [here](https://help.disqus.com/cu
 
 Comments are enabled by default and will only appear in production, i.e., `JEKYLL_ENV=production`. If you don't want to display comments for a particular post you can disable them by adding `comments: false` to that post's YAML Front Matter.
 
-### Google Analytics
+#### Google Analytics
 
 To enable Google Anaytics, add the following lines to your Jekyll site:
 
@@ -129,7 +152,7 @@ To enable Google Anaytics, add the following lines to your Jekyll site:
 
 Google Analytics will only appear in production, i.e., `JEKYLL_ENV=production`
 
-### Google Map
+#### Google Map
 
 To display Google map on contact page, add the following in your page content, replacing latitude, longitude and zoom values:
 
@@ -137,7 +160,7 @@ To display Google map on contact page, add the following in your page content, r
 {% include map.html latitude="40.6700" longitude="-73.9400" zoom="16" %}
 ```
 
-### Contact Form (via FormSpree)
+#### Contact Form (via FormSpree)
 
 Submit the form and confirm your email address at [FormSpree](https://formspree.io/). Then add the following lines to contact page YAML Front Matter, replacing the email address:
 
@@ -147,11 +170,11 @@ formspree:
     redirect: /thanks/
 ```
 
-### Update favicon
+#### Update favicon
 
 You can find the current favicon (favicon.png) inside the theme `/assets/img/` directory, just replace it with your new favicon.
 
-## Posts
+### Posts
 
 To create a new post, you can create a new markdown file inside the `_posts` directory by following the recommended file naming format:
 ```
@@ -164,7 +187,7 @@ Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit number
 2012-09-12-how-to-write-a-blog.md
 ```
 
-Post requires front matter, everything in between the first and second --- are part of the YAML Front Matter, and everything after the second --- will be rendered with Markdown and show up as ‚ÄúContent‚Äù.
+Post requires front matter, everything in between the first and second --- are part of the YAML Front Matter, and everything after the second --- will be rendered with Markdown and show up as ìContentî.
 The following is a post file with different configurations you can add as example:
 
 ```yaml
@@ -178,7 +201,7 @@ You can rebuild the site in many different ways, but the most common way is to r
 
 To keep things more organized, add post images to `/assets/posts/` directory, and add theme images to `/assets/img/` directory.
 
-### Adding images
+#### Adding images
 To add an image to a post or page use the following codes:
 Local image from `/assets/posts/` directory:
 ```yaml
@@ -189,7 +212,7 @@ External wide image with lightbox:
 {% include image.html img="https://source.unsplash.com/TT-ROxWj9nA.jpg" lightbox="true" alt="Alt for image" caption="Image in lightbox" %}
 ```
 
-### Adding table of contents
+#### Adding table of contents
 Add the following code at the top of the post:
 ```
 #### Sections in this article
@@ -199,7 +222,7 @@ Add the following code at the top of the post:
 ```
 `{:.no_toc}` exludes `#### Sections in this article` title from indexing in table of contents
 
-### Responsive Videos
+#### Responsive Videos
 Embed local videos:
 ```html
 <video controls playsinline uk-video="automute: true">
@@ -214,7 +237,7 @@ Embed YouTube videos:
 
 To create a draft post, create the post file under the `_drafts` directory, and you can find more information in [Working with Drafts](https://jekyllrb.com/docs/drafts/).
 
-## Home Page
+### Home Page
 
 To create a home page, just create a `index.md` file inside the root directory. The following is a YAML Front Matter example for a page:
 
@@ -259,7 +282,7 @@ Home page category boxes are added in `_data/navigation_home.yml`, e.g.:
 
 All available icons can be found [here](https://getuikit.com/docs/icon#library).
 
-## Docs
+### Docs
 
 To create a document post, just create a new page inside the root directory and add the following code in content:
 ```
@@ -289,7 +312,7 @@ Sidebar navigation on docs post can edited in `_data/navigation_docs.yml`:
   - windows
 ```
 
-## Changelog page
+### Changelog page
 
 Create  new page with the following front matter:
 
@@ -313,7 +336,7 @@ Changelog enties are added in `_data/changelog.yml`:
 ```
 
 
-## Customization
+### Customization
 
 To modify the primary color, open `/_sass/theme/variables.scss` and replace the color values e.g.:
 
@@ -329,7 +352,7 @@ Further style customisation can be done in the following files:
 /assets/css/main.scss
 ```
 
-## Development
+### Development
 
 Install [UIkit](https://getuikit.com/) font end framework dependency via Npm:
 ```bash
@@ -340,12 +363,12 @@ Enable live browser reload with the following:
 bundle exec jekyll s --livereload
 ```
 
-## Credits and Sources
+### Credits and Sources
 
 - Google analytics https://www.google.com/analytics/
 - Google maps https://www.google.com/maps
 - UIkit front end framework https://getuikit.com/
 - Jekyll CML https://jekyllrb.com/
 
-## Support
+### Support
 Customer support is provided through our Envato profile page [contact form](https://themeforest.net/user/pressapps) for up to six months from the purchase date and is provided Monday to Friday during the business week. We aim to answer all support requests daily, most are handled within 48h.
