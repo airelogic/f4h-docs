@@ -3,17 +3,17 @@
     {
       "title"    : "Add controls",
       "category" : "",
-      "tags"     : "",
+      "tags"     : "featured",
       "url"      : "/docs/add-basic-controls/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
       "title"    : "Advanced topics",
       "category" : "",
-      "tags"     : "",
+      "tags"     : "featured",
       "url"      : "/docs/advanced-features-of-forms4health-xpath/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
@@ -21,7 +21,7 @@
       "category" : "",
       "tags"     : "",
       "url"      : "/docs/create-add-remove-building-block/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
@@ -29,7 +29,7 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/create-and-manage-forms/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
@@ -37,15 +37,15 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/edit-building-blocks/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
       "title"    : "FAQ",
       "category" : "",
-      "tags"     : "",
+      "tags"     : "featured",
       "url"      : "/docs/faq/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
@@ -53,7 +53,7 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/preview-and-test-forms/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } ,
   
     {
@@ -61,7 +61,7 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/quickstart/",
-      "date"     : "2019-04-02 13:59:34 +0000"
+      "date"     : "2019-04-02 15:26:45 +0000"
     } 
   
 ]
