@@ -7,7 +7,7 @@ CALL bundle install
 echo
 echo ___________________________________
 echo Building production version of site
-CALL bundle exec jekyll build -t
+CALL bundle exec jekyll build -t --config _config.yml,_config-no-url.yml
 
 echo
 echo ____________________________________
