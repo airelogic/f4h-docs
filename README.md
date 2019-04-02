@@ -12,7 +12,7 @@ All media ssuch as pictures, animated gifs and videos hould be added to the `ass
 To publish a new version of the site simply follow the process below:
 
 1. Make your local edits on one or more files.
-1. _commit_ your changes to your (local) _git_ repository
+1. _commit_ your changes to your (local) _git_ repository (also run [link checking tools](#pre-push-link-testing))
 1. _push_ your changes to Bitbucket
 1. A build should automatically kick off on bitbucket that will generate the HTML files, check links etc. and then...
 1. _push_ the changes to the github.io site (which will subsequently make the content available via the [https://docs.forms4health.com](https://docs.forms4health.com) website
@@ -20,6 +20,27 @@ To publish a new version of the site simply follow the process below:
 Whilst you can log into Bitbucket to observer the build (click on Pipeline) you can also monitor the `#builds-and-jira` Aire Logic slack channel for any issues.
 
 ![Publication Process](./assets/Jekyll-build-process.png "Build Process")
+
+## Pre-push link testing
+
+It is good idea to minimise the number of broken _builds_ we create, as not only will the broken build prevent further publishing, the offended files might also be shared with other collaborators. Typically builds might break as result of simple typos, broken links etc. With that in mind it is worth running the `htmlproofer` tool locally. The script `pre-push-checks.bat` updates the ruby gems install for the project, builds the site locally and checks for broken links etc. (emulating the build steps on Bitbucket). If this passes then you can run the `git push` command to share your changes (and update the published site).
+
+If you run the tool and get an error:
+
+```bash
+ (LoadError)4/lib/ruby/gems/2.6.0/gems/ffi-1.10.0-x64-mingw32/lib/ffi/library.rb:145:in `block in ffi_lib': Could not open library 'libcurl': The specified module could not be found.
+.
+Could not open library 'libcurl.dll': The specified module could not be found.
+.
+Could not open library 'libcurl.so.4': The specified module could not be found.
+.
+Could not open library 'libcurl.so.4.dll': The specified module could not be found.
+```
+Then you need to put the `libcurl.dll` on Ruby's `PATH`. The easiest way to do this is to download libcurl from  https://curl.haxx.se/windows/ unzip the archive and copy the `libcurl*.dll` to `<Ruby Install Dir>\bin` renaming it to `libcurl.dll`.
+
+For instance downloading `curl-7.64.1-win64-mingw.zip` the library is `bin\libcurl-x64.dll` which we extract and rename to `libcurl.dll` and copy to `C:\Ruby26-x64\bin`
+
+
 
 ## Building the site locally
 
@@ -36,9 +57,18 @@ To run the site
 bundle exec jekyll serve -I
 ```
 
-The `-I` indicates interactive mode such that all changes should be reflected on your local website upon save (however is not perfect so you may need to `Ctl-Z` and re-run the command).
+The `-I` indicates interactive mode such that all changes should be reflected on your local website upon save (however is not perfect so you may need to `Ctl-C` and re-run the command).
+
+**_NOTE:_**  If you get an error that says something like `Unable to load the EventMachine C extension; To use the pure-ruby reactor, require 'em/pure_ruby'` then you need to do some Ruby/Gems magic (that I am not sure we understand). The magic is as follows. From a command prompt
+
+```bash
+gem uninstall eventmachine --force
+gem install eventmachine --platform ruby
+```
 
 The site should be available locally on [http://localhost:4000](http://localhost:4000).
+
+
 
 
 ## Details on the template we have purchased for the project are below for reference.
