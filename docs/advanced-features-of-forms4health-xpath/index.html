@@ -11,15 +11,15 @@
 <meta property="og:title" content="Advanced topics" />
 <meta name="author" content="Lauren" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Advanced features of forms4health (XPath) TODO" />
-<meta property="og:description" content="Advanced features of forms4health (XPath) TODO" />
+<meta name="description" content="The advanced features in forms4health use XPath (XML Path Language) queries." />
+<meta property="og:description" content="The advanced features in forms4health use XPath (XML Path Language) queries." />
 <link rel="canonical" href="https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/" />
 <meta property="og:url" content="https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-23T15:35:08+00:00" />
+<meta property="article:published_time" content="2019-04-24T11:13:13+00:00" />
 <script type="application/ld+json">
-{"description":"Advanced features of forms4health (XPath) TODO","author":{"@type":"Person","name":"Lauren"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/","headline":"Advanced topics","dateModified":"2019-04-23T15:35:08+00:00","datePublished":"2019-04-23T15:35:08+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/"},"@context":"https://schema.org"}</script>
+{"description":"The advanced features in forms4health use XPath (XML Path Language) queries.","author":{"@type":"Person","name":"Lauren"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/","headline":"Advanced topics","dateModified":"2019-04-24T11:13:13+00:00","datePublished":"2019-04-24T11:13:13+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -216,17 +216,87 @@
 
 
 
-<time datetime="2019-04-23T15:35:08+00:00" itemprop="datePublished">
+<time datetime="2019-04-24T11:13:13+00:00" itemprop="datePublished">
     
-    Apr 23, 2019
+    Apr 24, 2019
 </time>
 
                     </div>
 
                     <div class="article-content">
-                        <h1 id="advanced-features-of-forms4health-xpath"><strong>Advanced features of forms4health (XPath)</strong></h1>
-<p>TODO</p>
+                        <p>The advanced features in forms4health use XPath (XML Path Language) queries.</p>
 
+<p>For a quick reference list of commonly used XPath expressions in forms4health see the <a href="../faq">FAQ guide</a>.</p>
+
+<p>On this page, you can find out more about:</p>
+<ul>
+  <li><a href="#skip-logic"><strong>Skip Logic</strong></a></li>
+</ul>
+
+<h4 id="skip-logic"><strong>Skip Logic</strong></h4>
+
+<blockquote>
+  <p><em>Use for</em>: presenting only relevant data fields to users, skip logic enables non-relevant items to be skipped within a form</p>
+</blockquote>
+
+<p>For example:</p>
+
+<p><img src="/assets/screenshots/advancedfeatures/smokingcessationpreview.png" alt="smoking cessation preview" /></p>
+
+<p>The following steps show two ways to use skip logic, using both binary choice (Yes/No Answer) and select one from multiple options (Dropdown Menu) data fields.</p>
+
+<ol>
+  <li>Input and label the data fields as required. 
+This example uses:
+    <ul>
+      <li>Dropdown Menu</li>
+      <li>Yes/No Answer</li>
+      <li>Explanatory Text.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>The aim is to ask <strong>only</strong> smokers if they want help to stop smoking and if they answer ‘Yes’, to provide them with more information. <img src="/assets/screenshots/advancedfeatures/smoker-overview.png" alt="smoking cessation overview" /></p>
+
+<ol>
+  <li>
+    <p>Label any required choices. You can use numeric or string (text) values. For this example, we are using numeric values. Click <em>Apply</em>. <img src="/assets/screenshots/advancedfeatures/edit-choices.png" alt="label smoking choices" /></p>
+  </li>
+  <li>
+    <p>Click the <em>Control Settings</em> (cog) icon at the side of the data field to access settings. Question 1. “Do you smoke?” should be set as a required field (i.e. it must be answered). <img src="/assets/screenshots/advancedfeatures/smoker-validation1.png" alt="do you smoke? required field" /></p>
+  </li>
+  <li>
+    <p>Label the controls for the data fields that will be used to determine if  - this will make inputting the XPath expression simpler. <img src="/assets/screenshots/advancedfeatures/smoker-control1.png" alt="smoker control name" /><img src="/assets/screenshots/advancedfeatures/wants-to-stop-control-name.png" alt="smoker wants to stop control name" /></p>
+  </li>
+  <li>
+    <p>Next, go to the first data field that will be skipped (i.e. by those who are not smokers). Click the_Control Settings_ (cog) icon. In the <em>Formulas</em> tab input the X-Path into the <em>Visibility</em> text box in the format <strong>../control-name = true()</strong></p>
+
+    <p>As this is a select one from multiple data field, we can use the value that relates to being a smoker (2 = I am a smoker), as we want the next question to be visible only to smokers.</p>
+
+    <p>The formula is:  <strong>../patient-is-a-smoker = 2</strong> <img src="/assets/screenshots/advancedfeatures/patient-is-smoker-xpath.png" alt="patient-is-a-smoker-xpath" /></p>
+  </li>
+  <li>
+    <p>The next data field - information about how to quit smoking - is a binary response option (Yes/No Answer). If the patient responds ‘Yes’, we want them to see</p>
+
+    <p>Here we can use the formula: <strong>../patient-wants-to-stop = true()</strong> <img src="/assets/screenshots/advancedfeatures/patient-wants-help-xpath.png" alt="patient-wants-to-stop-xpath" /></p>
+  </li>
+  <li>
+    <p><a href="../preview-building-blocks">Preview and test</a> the building block.</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p><strong>More on Skip Logic</strong>:</p>
+  <ul>
+    <li>To create skip logic for data fields with more than one relevant response options use the OR expression. For example:
+      <ol>
+        <li>../patient-is-a-smoker = 2 or ../patient-is-a-smoker = 3</li>
+        <li>../patient-is-a-smoker = i-am-a-smoker or ../patient-is-a-smoker = i-use-electronic-cigarettes</li>
+      </ol>
+    </li>
+    <li>For more complex XPath expressions, see the quick reference list in the <a href="../faq">FAQ guide</a>.</li>
+  </ul>
+</blockquote>
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=Advanced topics&url=https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
