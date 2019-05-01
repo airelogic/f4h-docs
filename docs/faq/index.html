@@ -17,9 +17,9 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/faq/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-04-29T15:37:53+00:00" />
+<meta property="article:published_time" content="2019-05-01T08:18:07+00:00" />
 <script type="application/ld+json">
-{"description":"Commonly used selectors, operators and functions","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/faq/","headline":"FAQ","dateModified":"2019-04-29T15:37:53+00:00","datePublished":"2019-04-29T15:37:53+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"@context":"https://schema.org"}</script>
+{"description":"Commonly used selectors, operators and functions","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/faq/","headline":"FAQ","dateModified":"2019-05-01T08:18:07+00:00","datePublished":"2019-05-01T08:18:07+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -216,9 +216,9 @@
 
 
 
-<time datetime="2019-04-29T15:37:53+00:00" itemprop="datePublished">
+<time datetime="2019-05-01T08:18:07+00:00" itemprop="datePublished">
     
-    Apr 29, 2019
+    May 1, 2019
 </time>
 
                     </div>
@@ -377,6 +377,41 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="cui-functions">CUI Functions</h3>
+
+<table class="uk-table uk-table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: center">function</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:CUIFormatDate(date)</code></td>
+      <td style="text-align: left">Returns the date in CUI format</td>
+      <td style="text-align: left"><code class="highlighter-rouge">nf:CUIFormatDate('2019-05-01')</code> Result: 01-May-2019</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:CUIFormatAge(dateOfBirth)</code></td>
+      <td style="text-align: left">Returns the current age in CUI format</td>
+      <td style="text-align: left"><code class="highlighter-rouge">nf:CUIFormatAge('2015-10-25')</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:CUIFormatAge(dateOfBirth, dateToCalculateOn)</code></td>
+      <td style="text-align: left">Returns age in CUI format on the date of the second date parameter</td>
+      <td style="text-align: left"><code class="highlighter-rouge">nf:CUIFormatAge('2015-10-25', '2015-11-12')</code> Result: 18d</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:CUIFormatName(given, family, title)</code></td>
+      <td style="text-align: left">Returns a person’s name in CUI format</td>
+      <td style="text-align: left"><code class="highlighter-rouge">nf:CUIFormatName('Bob', 'Smith', 'Master')</code>  Result: SMITH, Bob (Master)</td>
+    </tr>
+  </tbody>
+</table>
+
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=FAQ&url=https://docs.forms4health.com/docs/faq/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
