@@ -17,9 +17,9 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/best-practices/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-10-12T11:15:41+00:00" />
+<meta property="article:published_time" content="2019-10-12T11:19:17+00:00" />
 <script type="application/ld+json">
-{"description":"This page discusses some best practice we use here at Aire Logic to build forms that are easy to maintain and to encourage consistency across your form authoring team.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/best-practices/","headline":"Best practices","dateModified":"2019-10-12T11:15:41+00:00","datePublished":"2019-10-12T11:15:41+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/best-practices/"},"@context":"https://schema.org"}</script>
+{"description":"This page discusses some best practice we use here at Aire Logic to build forms that are easy to maintain and to encourage consistency across your form authoring team.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/best-practices/","headline":"Best practices","dateModified":"2019-10-12T11:19:17+00:00","datePublished":"2019-10-12T11:19:17+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/best-practices/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -220,7 +220,7 @@
 
 
 
-<time datetime="2019-10-12T11:15:41+00:00" itemprop="datePublished">
+<time datetime="2019-10-12T11:19:17+00:00" itemprop="datePublished">
     
     Oct 12, 2019
 </time>
@@ -245,7 +245,7 @@
 <ul>
   <li><strong>Use Pascal Case for controls</strong> - for instance naming controls with names such as <code class="highlighter-rouge">FamilyName</code> or <code class="highlighter-rouge">DueDate</code></li>
   <li><strong>Use kebab-case for building blocks</strong> - for instance <code class="highlighter-rouge">personal-details</code> and <code class="highlighter-rouge">next-of-kin</code></li>
-  <li><strong>Identify up-front re-usable building blocks</strong> - for instance by prefixing with the word <em>generic</em> - e.g. <code class="highlighter-rouge">generic-next-of-kin</code>.</li>
+  <li><strong>Identify re-usable building blocks up-front</strong> - for instance by prefixing the name with the word <em>generic</em> - e.g. <code class="highlighter-rouge">generic-next-of-kin</code>.</li>
   <li><strong>Favour small building blocks</strong> - with 10 or less controls to allow flexibility of form layout composition and maximise the liklihood of re-use.</li>
   <li><strong>Use short kebab case names for forms</strong> - for instance <code class="highlighter-rouge">astham-review</code></li>
   <li><strong>Favour intermediate calculations</strong> - Typially done within the same building block to avoid significant cross-building block coupling and also to reduce calculation complexity and fragility to change. For instance if you had a form that calculated a wellbeing score on a variety of measures such as <em>GAD-7</em>, <em>PHQ-9</em> and <em>The Warwick-Edinburgh Mental Wellbeing Scales - WEMWBS</em> then it is best to break these into individual building blocks with scores in each that are then summed or otherwise combined to create an overall score.</li>
@@ -331,7 +331,7 @@
 
 <ul>
   <li><strong>Data capture you would want to split onto a seperate page</strong> - Within forms4health it is not possible to split questions / fields of a building block across mutiple pages, so consider how you want the layout to be before defining your building blocks.</li>
-  <li><strong>Err on side of small building blocks</strong> - To give you most flexibility in <a href="create-add-remove-building-block/#add-a-building-block-to-a-form">re-organising the layout of a form</a> we would recommend creating small building blocks with <em>no more than around 10 or so controls</em>. This can still allow you to create long pages (contaning multiple building blocks) if you so wished, but would equally allow you to capture data across multiple pages / steps as an alternative layout. If you built the form as effectively one huge building block changing layouts would not be possible.</li>
+  <li><strong>Err on side of small building blocks</strong> - To give you most flexibility in <a href="../create-add-remove-building-block/#add-a-building-block-to-a-form">re-organising the layout of a form</a> we would recommend creating small building blocks with <em>no more than around 10 or so controls</em>. This can still allow you to create long pages (contaning multiple building blocks) if you so wished, but would equally allow you to capture data across multiple pages / steps as an alternative layout. If you built the form as effectively one huge building block changing layouts would not be possible.</li>
   <li><strong>Consider reducing the amount of questions presented to users in one go</strong> - There has been a fair amount of user research that suggest less is best. For instance see some <a href="https://www.gov.uk/service-manual/design/form-structure">guidance from the UK’s Governemnt Digital Service (GDS)</a>. Clearly you need to consider your audience though - as a clinician filling a form on a daily basis will not have the same behaviour and needs as a patient who rarely uses the service.</li>
 </ul>
 
@@ -345,11 +345,11 @@
 
 <h3 id="example-scenario">Example scenario</h3>
 
-<p>You are developing an overall wellbeing assessment that calculated a score based on a variety of measures such as <em>GAD-7</em>, <em>PHQ-9</em> and <em>The Warwick-Edinburgh Mental Wellbeing Scales - WEMWBS</em>. Looking at the <a href="#building-block-scope-and-re-Use">building block guidance above</a> you have already identified that you will probably need to have at least three building blocks to capture that data (<code class="highlighter-rouge">generic-gad-7</code>, <code class="highlighter-rouge">generic-phq-9</code> and <code class="highlighter-rouge">generic-wemwbs</code>) as well as a final building that summarises the overall score - let’s call it <code class="highlighter-rouge">wellbeing-summary</code>. If we imagine the overall score as being a <em>simple sum of all the individual wellbeing measures</em> we have two distinct ways we could approach the solution:</p>
+<p>You are developing an overall wellbeing assessment that calculated a score based on a variety of measures such as <em>GAD-7</em>, <em>PHQ-9</em> and <em>The Warwick-Edinburgh Mental Wellbeing Scales - WEMWBS</em>. Looking at the <a href="#building-block-scope-and-re-use">building block guidance above</a> you have already identified that you will probably need to have at least three building blocks to capture that data (<code class="highlighter-rouge">generic-gad-7</code>, <code class="highlighter-rouge">generic-phq-9</code> and <code class="highlighter-rouge">generic-wemwbs</code>) as well as a final building that summarises the overall score - let’s call it <code class="highlighter-rouge">wellbeing-summary</code>. If we imagine the overall score as being a <em>simple sum of all the individual wellbeing measures</em> we have two distinct ways we could approach the solution:</p>
 
 <h4 id="put-all-the-calculation-logic-in-the-summary">Put all the calculation logic in the summary</h4>
 
-<p>In this case the summary score would need to consider the answers to nearly all the questions (<em>controls</em>) in each of the three building blocks. Combined with the need to employ the <a href="faq/#selectors">Cross Building Block Notation</a> you will have a formula that looks like something like:</p>
+<p>In this case the summary score would need to consider the answers to nearly all the questions (<em>controls</em>) in each of the three building blocks. Combined with the need to employ the <a href="../faq/#selectors">Cross Building Block Notation</a> you will have a formula that looks like something like:</p>
 
 <p><code class="highlighter-rouge">instance('generic-gad-7')/$q1 + instance('generic-gad-7')/$q2 ... + instance('generic-phq-9')/$q5+ instance('generic-phq-9')/$q6 + ... + instance('generic-webmwbs')/$q7 + instance('generic-webmwbs')/$q8 + ...</code></p>
 
@@ -357,7 +357,7 @@
 
 <p>Furthermore - in this case - <em>GAD-7</em>, <em>PHQ-9</em> etc. are internationally recognised assessment scoring mechanisms and therefore justify the <code class="highlighter-rouge">generic-...</code> prefix. You would not want to re-calculate the individual scores just becuase the building blocks were used in a different form.</p>
 
-<p>Far better to use the approah below.</p>
+<p>Far better to use the approach below.</p>
 
 <h4 id="calculate-sub-totals-within-each-building-block">Calculate sub-totals within each building block</h4>
 
