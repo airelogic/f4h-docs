@@ -17,9 +17,9 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/best-practices/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-10-11T16:44:28+00:00" />
+<meta property="article:published_time" content="2019-10-12T07:29:04+00:00" />
 <script type="application/ld+json">
-{"description":"This page discusses some best practice we use here at Aire Logic to build forms that are as easy to maintain as possible and to encourage consistency across your form authoring team.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/best-practices/","headline":"Best practices","dateModified":"2019-10-11T16:44:28+00:00","datePublished":"2019-10-11T16:44:28+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/best-practices/"},"@context":"https://schema.org"}</script>
+{"description":"This page discusses some best practice we use here at Aire Logic to build forms that are as easy to maintain as possible and to encourage consistency across your form authoring team.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/best-practices/","headline":"Best practices","dateModified":"2019-10-12T07:29:04+00:00","datePublished":"2019-10-12T07:29:04+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/best-practices/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -220,9 +220,9 @@
 
 
 
-<time datetime="2019-10-11T16:44:28+00:00" itemprop="datePublished">
+<time datetime="2019-10-12T07:29:04+00:00" itemprop="datePublished">
     
-    Oct 11, 2019
+    Oct 12, 2019
 </time>
 
                     </div>
@@ -240,18 +240,18 @@
 
 <h2 id="naming-conventions"><strong>Naming Conventions</strong></h2>
 
-<p>When you have multiple form authors working on developing your library it is worth defining some naming conventions up-front. By having some naming conventions in place it will make it easier for your form authors / maintainers to understand what has already been developed, to be able to create a common data dictionary (e.g. the names of building blocks and controls are used on the reporting APIs in much the same way a Database Table and Column Name is used in SQL queries) and to reduce duplication.</p>
+<p>When you have multiple form authors working on developing your library it is worth defining some naming conventions up-front. By having some naming conventions in place it will make it easier for your form authors and maintainers to understand what has already been developed, to be able to create a common data dictionary (e.g. the names of building blocks and controls are used on the reporting APIs in much the same way a Database Table and Column Name is used in SQL queries) and to reduce duplication.</p>
 
-<p>Below we describe some of the strategies we typically adopt, however there is no reason you could not define your own conventions - the most important point is to define your naming conventions.</p>
+<p>Below we describe some of the strategies we typically adopt, however there is no reason you could not define your own conventions - the goal is to create consistency.</p>
 
 <h3 id="control-and-section-naming-conventions">Control and Section Naming Conventions</h3>
 
-<p>When deciding on a naming convention for controls it is worth bearing in mind the following constraints</p>
+<p>When deciding on a naming convention for controls it is worth bearing in mind the following:</p>
 
 <h4 id="constraints">Constraints</h4>
 
 <ul>
-  <li><strong>A control name must be unique</strong> within a building block. For instance if you had a building block that captured a structured address you could not have multiple <code class="highlighter-rouge">AddressLine</code> controls - you would need to find an alternative approach such as uding <code class="highlighter-rouge">AddressLine1</code>, <code class="highlighter-rouge">AdressLine2</code> etc.</li>
+  <li><strong>A control name must be unique</strong> within a building block. For instance if you had a building block that captured a structured address you could not have multiple <code class="highlighter-rouge">AddressLine</code> controls - you would need to find an alternative approach such as using <code class="highlighter-rouge">AddressLine1</code>, <code class="highlighter-rouge">AdressLine2</code> etc.</li>
   <li><strong>Control names cannot contain spaces</strong> - for instance you cannot have a control called <code class="highlighter-rouge">Address Line</code></li>
   <li><strong>Control names cannot start with a number</strong> - for instance you cannot <code class="highlighter-rouge">1-Item</code> but you can have <code class="highlighter-rouge">Item-1</code>. The control name must start with a letter or underscore.</li>
   <li><strong>Most special characters are not permitted</strong> - for instance <code class="highlighter-rouge">?A</code> is not valid. Permitted characters in the name things are letters, digits, hyphens, underscores, and full stops [periods]</li>
@@ -260,19 +260,19 @@
 <h4 id="naming-considerations">Naming considerations</h4>
 
 <ul>
-  <li><strong>Names are meaningful</strong> - for instance the default names the designer applies is similar to <code class="highlighter-rouge">control-1</code> and <code class="highlighter-rouge">section-3</code>. It is better to rename them to <code class="highlighter-rouge">GivenName</code> and <code class="highlighter-rouge">PersonalDetails</code> to make it easier for downstream consumers to understand what the data represents - for instance when being used in a calculation elsewhere on the form or when queried via the data and reporting APIs</li>
-  <li><strong>Names reflect the data</strong>, not the question - for instance if there is a question asking about customer satistfaction use a name such as <code class="highlighter-rouge">SatisfactionRating</code> rather than <code class="highlighter-rouge">HowSatisfiedAreYou</code>. This means the control describes the data rather than the context of the data capture and is therefore more meaningful when consumed by downstream systems.</li>
+  <li><strong>Use meaningful names</strong> - for instance the default names the designer applies are similar to <code class="highlighter-rouge">control-1</code> and <code class="highlighter-rouge">section-3</code>. It is better to rename them to someting meaningful such as <code class="highlighter-rouge">GivenName</code> (control) and <code class="highlighter-rouge">PersonalDetails</code> (section) to make it easier for downstream consumers to understand what the data represents. For instance the data/value of the control might be used in a calculation elsewhere on the form or be queried via the data and reporting APIs</li>
+  <li><strong>Choose names that reflect the data</strong>, not the question - for instance if there is a question asking about customer satistfaction use a name such as <code class="highlighter-rouge">SatisfactionRating</code> rather than <code class="highlighter-rouge">HowSatisfiedAreYou</code>. This means the control describes the data rather than the context of the data capture and is therefore more meaningful when consumed by downstream systems.</li>
 </ul>
 
-<h4 id="possible-conventions">Possible conventions</h4>
+<h4 id="possible-naming-conventions">Possible naming conventions</h4>
 
 <p>You might wish to consider the following naming conventions (many of these will be familiar to coders or JSON/XML designers).</p>
 
 <ul>
   <li><strong><a href="https://en.wikipedia.org/wiki/Camel_case">camelCase</a></strong> - or more specifically <em>lower camel case</em> where the control name starts with a lower case letter and each word in the name has a capital - for instance <code class="highlighter-rouge">familyName</code></li>
-  <li><strong><a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)#Language_constructs">PascalCase</a></strong> where the control starts with a lower case letter and each word in the name has a capital - for instance <code class="highlighter-rouge">FamilyName</code></li>
+  <li><strong><a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)#Language_constructs">PascalCase</a></strong> where the control starts with an upper case letter and each word in the name has a capital - for instance <code class="highlighter-rouge">FamilyName</code></li>
   <li><strong><a href="https://en.wikipedia.org/wiki/Snake_case">snake_case</a></strong> where the control starts with a lower case letter and each word in the name is seperated by an <code class="highlighter-rouge">_</code> [underscore] - for instance <code class="highlighter-rouge">family_name</code>. Note: you could equally choose to start each word with a capital letter - e.g. <code class="highlighter-rouge">Family_Name</code>.</li>
-  <li><strong><a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab-case</a></strong> where the control starts with a lower case letter and each word in the name is seperated by a <code class="highlighter-rouge">-</code> [hyphen] - for instance <code class="highlighter-rouge">family-name</code>. Note: you could equally choose to start each word with a capital letter - e.g. <code class="highlighter-rouge">Family-Name</code> however that is uncommon in the wider technology industry.</li>
+  <li><strong><a href="https://en.wikipedia.org/wiki/Letter_case#Special_case_styles">kebab-case</a></strong> where the control starts with a lower case letter and each word in the name is seperated by a <code class="highlighter-rouge">-</code> [hyphen] - for instance <code class="highlighter-rouge">family-name</code>. Note: you could equally choose to start each word with a capital letter - e.g. <code class="highlighter-rouge">Family-Name</code> however that is relatvely uncommon in the wider technology industry.</li>
 </ul>
 
 <p>Here at Aire Logic we favour the <strong>Pascal Case</strong> notation, however any of the above is fine - consistency is key.</p>
