@@ -17,9 +17,9 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/faq/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-11-22T10:22:16+00:00" />
+<meta property="article:published_time" content="2019-11-22T10:36:33+00:00" />
 <script type="application/ld+json">
-{"description":"Commonly used selectors, operators and functions","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/faq/","headline":"FAQ","dateModified":"2019-11-22T10:22:16+00:00","datePublished":"2019-11-22T10:22:16+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"@context":"https://schema.org"}</script>
+{"description":"Commonly used selectors, operators and functions","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/faq/","headline":"FAQ","dateModified":"2019-11-22T10:36:33+00:00","datePublished":"2019-11-22T10:36:33+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -220,7 +220,7 @@
 
 
 
-<time datetime="2019-11-22T10:22:16+00:00" itemprop="datePublished">
+<time datetime="2019-11-22T10:36:33+00:00" itemprop="datePublished">
     
     Nov 22, 2019
 </time>
@@ -454,18 +454,18 @@
     </tr>
     <tr>
       <td style="text-align: center"><code class="highlighter-rouge">string-length(.) &lt;operator&gt; &lt;character count limit&gt;</code></td>
-      <td style="text-align: left">Logic to add a constrain the character count</td>
+      <td style="text-align: left">Logic to add a <a href="../advanced-features-of-forms4health-xpath/#validation">constraint</a> on character count</td>
       <td style="text-align: left"><code class="highlighter-rouge">string-length(.) &lt;= 100</code> adds a constraint that the user input must contain 100 or less characters (includes leading, trailing and multiple adjacent whitespace characters)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="highlighter-rouge">string-length(normalize-space(.)) &lt;operator&gt; &lt;character count limit&gt;</code></td>
-      <td style="text-align: left">Logic to add a constrain the character count</td>
+      <td style="text-align: left">Logic to add a <a href="../advanced-features-of-forms4health-xpath/#validation">constraint</a> on character count ignoring superfulous spaces</td>
       <td style="text-align: left"><code class="highlighter-rouge">string-length(normalize-space(.)) &lt;= 100</code> adds a constraint that the user input must contain 100 or less characters  (excludes leading, trailing whitespace. Multiple adjacent whitespace characters are counted as one)</td>
     </tr>
     <tr>
       <td style="text-align: center"><code class="highlighter-rouge">count(tokenize(normalize-space(.), ' ')) &lt;operator&gt; &lt;word count limit&gt;</code></td>
-      <td style="text-align: left">Logic to add a constraint one word count</td>
-      <td style="text-align: left"><code class="highlighter-rouge">count(tokenize(normalize-space(.), ' ')) = 3</code> adds a constraint that the user input must contain exactly three words (no more no less). For futher understanding, the <code class="highlighter-rouge">normalise-space()</code> function trims and reduces double spaces to one single one, the <code class="highlighter-rouge">tokenize()</code> function breaks the text - in this case words delimited by a single space (<code class="highlighter-rouge">␣</code>). The <code class="highlighter-rouge">count()</code> function counts the number of nodes (i.e. words in tis case)</td>
+      <td style="text-align: left">Logic to add a word count <a href="../advanced-features-of-forms4health-xpath/#validation">constraint</a></td>
+      <td style="text-align: left"><code class="highlighter-rouge">count(tokenize(normalize-space(.), ' ')) = 3</code> adds a constraint that the user input must contain exactly three words (no more no less). For futher understanding, the <a href="https://www.w3.org/TR/xpath-functions-31/#func-normalize-space">normalise-space()</a> function trims and reduces double spaces to one single one, the <a href="https://www.w3.org/TR/xpath-functions-31/#func-tokenize">tokenize()</a> function breaks the text - in this case words delimited by a single space (<code class="highlighter-rouge">␣</code>). The <a href="https://www.w3.org/TR/xpath-functions-31/#func-count">count()</a> function counts the number of nodes (i.e. words in this case)</td>
     </tr>
   </tbody>
 </table>
