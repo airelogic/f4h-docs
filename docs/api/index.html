@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>API | forms4health documentation</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="API" />
+<meta name="author" content="Michael" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable." />
+<meta property="og:description" content="This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable." />
+<link rel="canonical" href="https://docs.forms4health.com/docs/api/" />
+<meta property="og:url" content="https://docs.forms4health.com/docs/api/" />
+<meta property="og:site_name" content="forms4health documentation" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-11T17:08:19+00:00" />
+<script type="application/ld+json">
+{"description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/api/","headline":"API","dateModified":"2020-01-11T17:08:19+00:00","datePublished":"2020-01-11T17:08:19+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" >
+  <link rel="alternate" type="application/rss+xml" title="forms4health documentation" href="/feed.xml">
+  <script src="/assets/js/main.js"></script>
+  
+</head>
+
+    <body>
+    
+<nav class="siblings dark">
+	
+	<div class="nav-bar wrapper wrapper-large">
+		
+			<a  href="https://forms4health.com">Home</a>
+		
+			<a class="active" href="https://docs.forms4health.com">Learn</a>
+		
+			<a  href="https://demo.forms4health.com">Demo</a>
+		
+		
+	</div>
+</nav>
+    <header class="uk-background-secondary">
+    <div data-uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" class="uk-sticky uk-sticky-fixed" style="position: fixed; top: 0px; width: 1904px;">
+        <nav class="uk-navbar-container">
+            <div class="uk-container">
+    <div data-uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo uk-visible@m" href="/">forms4health</a>
+            
+              <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas-docs" data-uk-toggle><span data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Mini-nav</span></a>
+            
+
+        </div>
+        <div class="uk-navbar-center uk-hidden@m">
+            <a class="uk-navbar-item uk-logo" href="/">forms4health</a>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav uk-visible@m">
+                
+                    
+                    
+                    
+                        <li><a href="/" >Help</a></li>
+                    
+                
+                    
+                    
+                    
+                        <li><a href="/news/" >News</a></li>
+                    
+                
+                    
+                    
+                    
+                        <li><a href="/changelog/" >Changelog</a></li>
+                    
+                
+                    
+                    
+                    
+                        <li><a href="/contact/" >Contact</a></li>
+                    
+                
+            </ul>
+
+            
+            <div>
+                <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                <div class="uk-drop uk-background-default uk-border-rounded" uk-drop="mode: click; pos: left-center; offset: 0">
+                    <form class="uk-search uk-search-navbar uk-width-1-1" onsubmit="return false;">
+                        <input id="navbar-search" class="uk-search-input" type="search" placeholder="Search..." autofocus>
+                    </form>
+                    <ul id="navbar-search-results" class="uk-position-absolute uk-width-1-1 uk-list"></ul>
+                </div>
+            </div>
+            <script>
+            SimpleJekyllSearch({
+                searchInput: document.getElementById('navbar-search'),
+                resultsContainer: document.getElementById('navbar-search-results'),
+                noResultsText: '<li>No results found</li>',
+                searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+                json: '/search.json'
+            });
+            </script>
+            
+
+            
+              <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" data-uk-toggle><span data-uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span></a>
+            
+
+
+        </div>
+    </div>
+</div>
+
+        </nav>
+    </div>
+</header>
+
+
+    
+
+    <div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid-large" data-uk-grid>
+
+            <div class="sidebar-fixed-width uk-visible@m">
+                <div class="sidebar-docs uk-position-fixed">
+                    
+                    <h5>Getting Started</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/docs/quickstart/">Getting started building a form</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Building Blocks</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/docs/building-block-designer-overview/">Building Block Designer Overview</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/docs/create-add-remove-building-block/">Create, add and remove building blocks</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/docs/edit-building-blocks/">Edit Building Blocks</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/docs/add-basic-controls/">Add Basic Controls</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Manage Forms</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/docs/create-and-manage-forms/">Create and Manage forms</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/docs/preview-and-test-forms/">Preview and test forms</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Advanced Topics</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/docs/advanced-features-of-forms4health-xpath/">Rules and Logic</a></li>
+                    
+                      
+                      
+                      <li class=""><a href="/docs/best-practices/">Best practices</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Troubleshooting</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class=""><a href="/docs/faq/">FAQ</a></li>
+                    
+                    </ul>
+                    
+                    <h5>Developers</h5>
+                    <ul class="uk-nav uk-nav-default doc-nav">
+                    
+                      
+                      
+                      <li class="uk-active"><a href="/docs/api/">API</a></li>
+                    
+                    </ul>
+                    
+                </div>
+            </div>
+
+            <div class="uk-width-1-1 uk-width-expand@m">
+
+                <article class="uk-article">
+
+                    <h1 class="uk-article-title">API</h1>
+
+                    <p class="subtitle uk-text-lead uk-text-muted">Form Launch URLs and other forms4health APIs</p>
+
+                    <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
+                        
+
+
+
+
+
+<time datetime="" itemprop="datePublished">
+    
+    
+</time>
+
+                    </div>
+
+                    <div class="article-content">
+                        <p>This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.</p>
+
+<p>What you can find on this page:</p>
+<ul>
+  <li><a href="#url-structure"><strong>Form Load URL Structure</strong></a></li>
+  <li><a href="#form-template-apis"><strong>Form Template APIs</strong></a></li>
+  <li><a href="#form-instance-apis"><strong>Form Instance APIs</strong></a>
+<!-- - [**Data and Reporting APIs**](#data-and-reporting-apis) --></li>
+  <li><a href="#error-handling-and-standard-http-response-codes"><strong>Error handling and standard HTTP response codes</strong></a></li>
+</ul>
+
+<h1 id="load-url-structure">Load URL Structure</h1>
+
+<h2 id="non-persisted">Non-persisted</h2>
+
+<h3 id="single-pass-forms---preview-in-design-time-environment">Single Pass Forms - Preview in design time environment</h3>
+<p><em>Route</em>: GET <code class="highlighter-rouge">/SinglePassDemo/{formKey}/{formVersion}/Load</code><br />
+<em>Description</em>: Loads a <em>SinglePass</em> form in a demo (when submitted renders resulting PDF, no data is stored)<br />
+<em>Example</em>: <code class="highlighter-rouge">/SinglePassDemo/dental-smile-assessment/1/Load</code></p>
+
+<h3 id="single-pass-forms">Single Pass Forms</h3>
+<p><em>Route</em>: GET <code class="highlighter-rouge">{tenantId}/SinglePass/{formKey}/{formVersion}/Load</code><br />
+<em>Description</em>: Loads a <em>SinglePass</em> form for the associated tenant<br />
+<em>Example</em>: <code class="highlighter-rouge">{tenantId}/SinglePass/dental-smile-assessment/1/Load</code></p>
+
+<h3 id="single-pass-forms-customer-url">Single Pass Forms (customer URL)</h3>
+<p>Typically used in conjunction with a proxy server to provide seamless integration with CMS such as wordpress.<br />
+<em>Route</em>: GET <code class="highlighter-rouge">{organisation forms domain/subdomain}/forms/{formKey}/{formVersion}</code><br />
+<em>Description</em>: Loads a <em>SinglePass</em> form in the context of an organisation’s own domain name<br />
+<em>Example</em>: <code class="highlighter-rouge">https://forms.orgdomainname.com/forms/sick-note-request/1</code> - Sub-domained<br />
+<em>Example</em>: <code class="highlighter-rouge">https://gp-practices.co.uk/forms/sick-note-request/1</code> - Proxied</p>
+
+<!-- ## Persisted Forms
+
+TODO
+
+### PDFs
+
+TODO -->
+
+<h1 id="form-template-apis">Form Template APIs</h1>
+<p>The following APIs are used by a wrapping application to dynamically decide which forms are available for use by users (with the correct permissions) and to provide complete structural and layout infomation of the a particular form template.</p>
+
+<h2 id="discover-what-non-persisted-style-form-templates-are-available-publised">Discover what non-persisted style form templates are available (publised)</h2>
+<p><em>Route</em>: GET <code class="highlighter-rouge">/{tenantId}/SinglePass/AvailableForms</code> <br />
+<em>Description</em>: Returns a list of forms that are marked as production
+<em>Example</em>: <code class="highlighter-rouge">/TEST01/SinglePass/AvailableForms</code></p>
+<h3 id="response">Response</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {
+        "name": "FGD Symptom Evaluation",
+        "key": "fgd-symptom-evaluation",
+        "versions": [
+            1,
+            2
+        ]
+    },
+    {
+        "name": "Patient Dental Smile Assessment",
+        "key": "dental-smile-assessment",
+        "versions": [
+            1
+        ]
+    }
+    ...
+]
+</code></pre></div></div>
+
+<h2 id="discover-what-persisted-form-style-templates-are-available-published">Discover what persisted form style templates are available (published)</h2>
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/clinicianforms/availableForms</code> <br />
+<em>Description</em>: Returns a list of forms that are marked as production</p>
+<h3 id="response-1">Response</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {
+        "key": "vte",
+        "title": "VTE Risk Assessment",
+        "classification": "Observation"
+    },
+    {
+        "key": "eolc",
+        "title": "End of Life Care Plan",
+        "classification": "Plans"
+    }
+    ...
+]
+</code></pre></div></div>
+
+<h2 id="get-details-about-a-form-template">Get details about a form template</h2>
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/formdefinition/{formKey}/{formVersion}</code><br />
+<em>Description</em>: Returns a JSON based representation of the entire form.<br />
+<em>Example</em>: <code class="highlighter-rouge">/api/formdefinition/bmi-reporting/1</code></p>
+<h3 id="response-2">Response</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "key": "bmi-reporting",
+    "version": 1,
+    "title": "BMI Reporting",
+    "allowAmend": false,
+    "classification": "Uncategorised",
+    "allowSaveDraft": true,
+    "autoSaveInteval": 30,
+    "allowDiscard": false,
+    "allowRevoke": false,
+    "buildingBlocks": [
+        {
+            "key": "reporting-bmi",
+            "version": 1,
+            "xPath": "ReportingBmi",
+            "sections": [
+                {
+                    "id": "Section_weight_and_Height",
+                    "xPath": "Section_weight_and_Height",
+                    "controls": [
+                        {
+                            "id": "Unit_type",
+                            "xPath": "Unit_type",
+                            "dataType": "string",
+                            "label": "Unit type",
+                            "hint": "",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": "@displayName",
+                            "otherValueXPath": null
+                        },
+                        {
+                            "id": "Height_meters",
+                            "xPath": "Height_meters",
+                            "dataType": "decimal",
+                            "label": "Height (m)",
+                            "hint": "Height in meters - e.g. 1.81",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        },
+                        {
+                            "id": "Height_feet",
+                            "xPath": "Height_feet",
+                            "dataType": "decimal",
+                            "label": "Height (feet)",
+                            "hint": "e.g. 5",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        },
+                        {
+                            "id": "Height_inches",
+                            "xPath": "Height_inches",
+                            "dataType": "decimal",
+                            "label": "Height (inches)",
+                            "hint": "e.g. 11 or 11.25",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        },
+                        {
+                            "id": "Weight_kg",
+                            "xPath": "Weight_kg",
+                            "dataType": "decimal",
+                            "label": "Weight (kg)",
+                            "hint": "",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        },
+                        {
+                            "id": "Weight_pounds",
+                            "xPath": "Weight_pounds",
+                            "dataType": "decimal",
+                            "label": "Weight (pounds)",
+                            "hint": "",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        }
+                    ],
+                    "repeats": []
+                },
+                {
+                    "id": "Section_BMI",
+                    "xPath": "Section_BMI",
+                    "controls": [
+                        {
+                            "id": "BMI",
+                            "xPath": "BMI",
+                            "dataType": "decimal",
+                            "label": "BMI",
+                            "hint": "",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        },
+                        {
+                            "id": "Weight_appropriate",
+                            "xPath": "Weight_appropriate",
+                            "dataType": "string",
+                            "label": "Weight appropriate",
+                            "hint": "",
+                            "couldHaveValue": true,
+                            "couldHaveMultipleValues": false,
+                            "displayNameXPath": null,
+                            "otherValueXPath": null
+                        }
+                    ],
+                    "repeats": []
+                }
+            ]
+        }
+    ]
+}
+</code></pre></div></div>
+
+<h1 id="form-instance-apis">Form Instance APIs</h1>
+<p>These APIs are only applicable for forms4health deployments with associated persistence.</p>
+<h2 id="get-form-instances-for-a-given-patient">Get form instances for a given patient</h2>
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}</code><br />
+<em>Description</em>:  Returns a list of all forms associated with the patientId<br />
+<em>Example</em>: <code class="highlighter-rouge">/api/patientforms/488edeAB-5e8F-4e50-9137-24e377cf9436</code></p>
+<h3 id="response-3">Response</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {
+        "instanceGuid": "359f466a-42bd-4a06-b48f-0e4fac842706",
+        "title": "End of Life Care Plan",
+        "createDateTimeUtc": "2020-01-09T16:41:34.813",
+        "lastModifiedDateTimeUtc": "2020-01-09T16:41:34.813",
+        "status": "Draft",
+        "isAmendable": true,
+        "key": "eolc",
+        "version": 1
+    },
+    {
+        "instanceGuid": "e69544ef-b068-4ad4-8220-e860164a5505",
+        "title": "BMI Reporting",
+        "createDateTimeUtc": "2019-12-02T11:22:12.6",
+        "lastModifiedDateTimeUtc": "2019-12-02T11:22:32.297",
+        "status": "Complete",
+        "isAmendable": false,
+        "key": "bmi-reporting",
+        "version": 1
+    }
+    ...
+]
+</code></pre></div></div>
+
+<!-- # Data and Reporting APIs
+TODO -->
+
+<h1 id="error-handling-and-standard-http-response-codes">Error handling and standard HTTP response codes</h1>
+
+<p>HTTP Response Codes are used per standard REST API design. However the most commonly used codes by forms4health are listed below.</p>
+
+<p>Where APIs used a different set or response codes / behaviours these are individually documented with the API</p>
+
+<table class="uk-table uk-table-striped">
+  <tbody>
+    <tr>
+      <td>Code</td>
+      <td>Description</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">200</code></td>
+      <td><em>Success</em> - The operation to load/save a form or call an API succeded. The response payload will be dependent on the URL/API called</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">400</code></td>
+      <td><em>Bad Request</em> - Occurs if the API request payload (or URL parameters) fail validation or are otherwise malformed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">403</code></td>
+      <td><em>Forbidden</em> - The User does not have the correct permissions (or is not authenticated), and/or the <em>tenantId</em> or <em>formKey/version</em> configuration does not support the requested operation</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">404</code></td>
+      <td><em>Not Found</em> - The requested URL / API does not exist and/or the <em>tenantId</em> and/or <em>patientId</em> does not exist and/or the <em>formKey/formVersion</em> does not exist or is not in a published state</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">500</code></td>
+      <td><em>Internal Server Error</em> - An error has occured on the server</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">503</code></td>
+      <td><em>Service Unavailable</em> - The server might be re-starting or (more likely) a proxy server cannot contact the service</td>
+    </tr>
+  </tbody>
+</table>
+
+                        <div class="share uk-text-center">
+    <a href="https://twitter.com/intent/tweet?text=API&url=https://docs.forms4health.com/docs/api/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.forms4health.com%2Fdocs%2Fapi%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+</div>
+
+                    </div>
+
+                    <hr class="uk-margin-medium">
+
+                    
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <ul class="uk-pagination uk-margin-top">
+          
+            
+            
+            <li><a class="hvr-back" href="/docs/faq/">&larr; Previous</a></li>
+          
+          
+
+          
+    </ul>
+    
+
+
+                    <div class="uk-margin-large-top">
+    <h3>Related Articles</h3>
+
+    
+    
+    
+
+    <ul class="uk-list">
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/add-basic-controls/">Add Basic Controls</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/advanced-features-of-forms4health-xpath/">Rules and Logic</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/building-block-designer-overview/">Building Block Designer Overview</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/create-and-manage-forms/">Create and Manage forms</a></li>
+        
+        
+            
+    </ul>
+</div>
+
+
+                    
+                </article>
+
+                <div>
+                    <div class="uk-section uk-text-center uk-link-muted">
+    <div class="uk-margin-medium uk-text-small">
+        <div><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></div>
+        <div>Published under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</div> 
+    </div> 
+</div>
+
+                </div>
+
+                <script>
+                    // Table of contents scroll to
+                    UIkit.scroll('#markdown-toc a', {
+                        duration: 400,
+                        offset: 120
+                    });
+                </script>
+
+            </div>
+
+    </div>
+</div>
+
+
+    <div id="offcanvas-docs" data-uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+
+        
+        <h5 class="uk-margin-top">Getting Started</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class=""><a href="/docs/quickstart/">Getting started building a form</a></li>
+        
+        </ul>
+        
+        <h5 class="uk-margin-top">Building Blocks</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class=""><a href="/docs/building-block-designer-overview/">Building Block Designer Overview</a></li>
+        
+          
+          
+          <li class=""><a href="/docs/create-add-remove-building-block/">Create, add and remove building blocks</a></li>
+        
+          
+          
+          <li class=""><a href="/docs/edit-building-blocks/">Edit Building Blocks</a></li>
+        
+          
+          
+          <li class=""><a href="/docs/add-basic-controls/">Add Basic Controls</a></li>
+        
+          
+          
+          <li class=""><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
+        
+        </ul>
+        
+        <h5 class="uk-margin-top">Manage Forms</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class=""><a href="/docs/create-and-manage-forms/">Create and Manage forms</a></li>
+        
+          
+          
+          <li class=""><a href="/docs/preview-and-test-forms/">Preview and test forms</a></li>
+        
+        </ul>
+        
+        <h5 class="uk-margin-top">Advanced Topics</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class=""><a href="/docs/advanced-features-of-forms4health-xpath/">Rules and Logic</a></li>
+        
+          
+          
+          <li class=""><a href="/docs/best-practices/">Best practices</a></li>
+        
+        </ul>
+        
+        <h5 class="uk-margin-top">Troubleshooting</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class=""><a href="/docs/faq/">FAQ</a></li>
+        
+        </ul>
+        
+        <h5 class="uk-margin-top">Developers</h5>
+        <ul class="uk-nav uk-nav-default doc-nav">
+        
+          
+          
+          <li class="uk-active"><a href="/docs/api/">API</a></li>
+        
+        </ul>
+        
+
+    </div>
+</div>
+
+
+    <div id="offcanvas" data-uk-offcanvas="flip: true; overlay: true">
+    <div class="uk-offcanvas-bar">
+
+        <button class="uk-offcanvas-close" type="button" data-uk-close></button>
+
+        <ul class="uk-nav uk-nav-default">
+            <li><a class="uk-logo uk-margin-small-bottom" href="/">forms4health</a></li>
+            
+                
+            <li><a href="https://docs.forms4health.com/" >Help</a></li>
+            
+                
+            <li><a href="https://docs.forms4health.com/news/" >News</a></li>
+            
+                
+            <li><a href="https://docs.forms4health.com/changelog/" >Changelog</a></li>
+            
+                
+            <li><a href="https://docs.forms4health.com/contact/" >Contact</a></li>
+            
+        </ul>
+
+        <div class="uk-margin-small-top uk-text-center uk-text-muted uk-link-muted">
+            <div data-uk-grid class="uk-child-width-auto uk-grid-small uk-flex-center uk-grid">
+                
+<div class="uk-first-column">
+    <a href="https://twitter.com/AireLogic" data-uk-icon="icon: twitter" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <a href="https://www.forms4health.com" data-uk-icon="icon: link" class="uk-icon-link uk-icon" target="_blank"></a>
+</div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    
+
+    </body>
+
+</html>
