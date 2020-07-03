@@ -20,7 +20,7 @@ pipelines:
             - bundler --version
             - bundle install
             - JEKYLL_ENV=production bundle exec jekyll build -t  --config _config.yml,_config-no-url.yml
-            - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
+            - bundle exec htmlproofer ./_site --url-ignore "/#.*/,/http://.*/,/https://.*/"
             - JEKYLL_ENV=production bundle exec jekyll build -t
             - git clone https://github.com/airelogic/f4h-docs.git
             - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
