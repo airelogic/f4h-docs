@@ -17,9 +17,9 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-07-28T10:21:34+00:00" />
+<meta property="article:published_time" content="2020-08-12T19:28:30+00:00" />
 <script type="application/ld+json">
-{"description":"The advanced features in forms4health use XPath (XML Path Language) queries.","author":{"@type":"Person","name":"Lauren"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/","headline":"Rules and Logic","dateModified":"2020-07-28T10:21:34+00:00","datePublished":"2020-07-28T10:21:34+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/"},"@context":"https://schema.org"}</script>
+{"description":"The advanced features in forms4health use XPath (XML Path Language) queries.","author":{"@type":"Person","name":"Lauren"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/","headline":"Rules and Logic","dateModified":"2020-08-12T19:28:30+00:00","datePublished":"2020-08-12T19:28:30+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/advanced-features-of-forms4health-xpath/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -249,6 +249,7 @@
 <ul>
   <li><a href="#calculated-value"><strong>Calculated Value</strong></a></li>
   <li><a href="#skip-logic"><strong>Skip Logic</strong></a></li>
+  <li><a href="#filtering-drop-downs"><strong>Filtering Drop Downs</strong></a></li>
   <li><a href="#validation"><strong>Validation</strong></a>
     <ul>
       <li><a href="#validation-using-formulas"><strong>Validation using formulas</strong></a></li>
@@ -365,6 +366,38 @@ The aim is to ask <strong>only</strong> smokers if they want help to stop smokin
     <li>For more complex XPath expressions, see the quick reference list in the <a href="../faq">FAQ guide</a>.</li>
   </ul>
 </blockquote>
+
+<h4 id="filtering-drop-downs"><strong>Filtering Drop Downs</strong></h4>
+
+<p>Values in one drop down can be used to filter the values in another dropdown.</p>
+
+<ol>
+  <li>
+    <p>Create the first drop down and add some values to it</p>
+
+    <p><img src="/assets/screenshots/advancedfeatures/filtering-dropdown-create-first.png" alt="create first dropdown" /></p>
+  </li>
+  <li>
+    <p>Give the dropdown a name</p>
+
+    <p><img src="/assets/screenshots/advancedfeatures/filtering-dropdown-name-first-dropdown.png" alt="name first dropdown" /></p>
+  </li>
+  <li>
+    <p>Create a second dropdown and add values to it. In the filter groups column add a value from the first dropdown to have this list filtered when the first dropdown is set to that value. Multiple values can be entered seperated by a space.</p>
+
+    <p><img src="/assets/screenshots/advancedfeatures/filtering-dropdown-create-second.png" alt="create second dropdown" /></p>
+  </li>
+  <li>
+    <p>On the second dropdown under additional settings set the choice filter xpath to the name of the first dropdown.</p>
+
+    <p><img src="/assets/screenshots/advancedfeatures/filtering-dropdown-set-filter-control.png" alt="set choice filter xpath" /></p>
+  </li>
+  <li>
+    <p>Preview the form and you can see that changing the first dropdown filters the results of the second dropdown</p>
+
+    <p><img src="/assets/screenshots/advancedfeatures/filtering-dropdown-demo.gif" alt="dropdown filter demo" /></p>
+  </li>
+</ol>
 
 <h4 id="validation"><strong>Validation</strong></h4>
 
