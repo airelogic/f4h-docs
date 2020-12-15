@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/faq/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-11-30T12:41:17+00:00" />
+<meta property="article:published_time" content="2020-12-15T21:28:10+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="FAQ" />
 <script type="application/ld+json">
-{"description":"Commonly used selectors, operators and functions","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/faq/","headline":"FAQ","dateModified":"2020-11-30T12:41:17+00:00","datePublished":"2020-11-30T12:41:17+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"@context":"https://schema.org"}</script>
+{"description":"Commonly used selectors, operators and functions","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/faq/","headline":"FAQ","dateModified":"2020-12-15T21:28:10+00:00","datePublished":"2020-12-15T21:28:10+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -448,7 +448,7 @@
 
 <h3 id="cheat-sheet">Cheat Sheet</h3>
 
-<table class="uk-table uk-table-striped">
+<table>
   <thead>
     <tr>
       <th style="text-align: center">function</th>
@@ -492,8 +492,19 @@
       <td style="text-align: left">Display a raw decimal value to a certain number of decimal places. When multiplied/divided by <code class="highlighter-rouge">10</code> this will give one decimal place, <code class="highlighter-rouge">100</code> will give two decimal places and so on. Note - this is not just formatting it affects the data.</td>
       <td style="text-align: left"><code class="highlighter-rouge"> round(($weight div ($height*$height))*100) div 100</code> returns a BMI in this case with two decimal place precision</td>
     </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:date-add(&lt;iso-date&gt;, &lt;unit&gt;, &lt;amount-to-add&gt;)</code></td>
+      <td style="text-align: left">Adds (or subtracts) a certain amount from a given input date. Valid units are: <code class="highlighter-rouge">years</code>, <code class="highlighter-rouge">months</code>, <code class="highlighter-rouge">days</code>, <code class="highlighter-rouge">minutes</code>, <code class="highlighter-rouge">hours</code> or <code class="highlighter-rouge">seconds</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">nf:date-add('2020-12-31', 'days', 2)</code> returns a date two days after 31st December 2020 - i.e. <code class="highlighter-rouge">2021-01-02T00:00:00.000Z</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:isValidNHSNumber(&lt;node | value&gt;)</code></td>
+      <td style="text-align: left">Validates the string evaluatred at an XPath is valid NHS Number including validating check-digit (can use http://danielbayley.uk/nhs-number/ for testing). Handles whitespace gracefully.</td>
+      <td style="text-align: left"><code class="highlighter-rouge">nf:isValidNHSNumber('598 480 8803')</code> returns <code class="highlighter-rouge">true</code></td>
+    </tr>
   </tbody>
 </table>
+
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=FAQ&url=https://docs.forms4health.com/docs/faq/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
