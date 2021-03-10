@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/api/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-02-26T11:41:51+00:00" />
+<meta property="article:published_time" content="2021-03-10T12:09:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API" />
 <script type="application/ld+json">
-{"description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/api/","headline":"API","dateModified":"2021-02-26T11:41:51+00:00","datePublished":"2021-02-26T11:41:51+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"@context":"https://schema.org"}</script>
+{"description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","author":{"@type":"Person","name":"Michael"},"@type":"BlogPosting","url":"https://docs.forms4health.com/docs/api/","headline":"API","dateModified":"2021-03-10T12:09:52+00:00","datePublished":"2021-03-10T12:09:52+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -557,6 +557,7 @@ TODO -->
 
 <h2 id="get-form-instances-by-instance-identifiers">Get form instances by instance identifiers</h2>
 <p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms?instanceGuid={instanceGuid}</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">ListPatientForms</code><br />
 <em>Description</em>:  Returns a list of all forms with the given instance identifiers<br />
 <em>Example</em>: <code class="highlighter-rouge">api/patientforms?instanceGuid=816eb663-cc1f-478d-8efe-5c068ec434f2&amp;instanceGuid=ba63eed3-5901-4cb0-a48a-955eab32abcf</code></p>
 
@@ -588,6 +589,7 @@ TODO -->
 
 <h2 id="get-form-instances-for-a-given-patient">Get form instances for a given patient</h2>
 <p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">ListPatientForms</code><br />
 <em>Description</em>:  Returns a list of all forms associated with the patientId<br />
 <em>Example</em>: <code class="highlighter-rouge">/api/patientforms/488edeAB-5e8F-4e50-9137-24e377cf9436</code></p>
 
@@ -619,6 +621,7 @@ TODO -->
 
 <h2 id="create-form-instances-for-a-given-patient">Create form instances for a given patient</h2>
 <p><em>Route</em>: POST <code class="highlighter-rouge">/api/clinicianforms/create/</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">Create</code><br />
 <em>Description</em>:  Create an instance of a form for a given patient</p>
 
 <h3 id="request">Request</h3>
@@ -630,11 +633,33 @@ TODO -->
 }
 </code></pre></div></div>
 
+<h2 id="withdraw-a-form-instance">Withdraw a form instance</h2>
+<p><em>Route</em>: POST <code class="highlighter-rouge">/api/patientforms/{PatientId}/instance/{InstanceId}/withdraw</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">Withdraw</code><br />
+<em>Description</em>:  Marks a form instance and all its instance versions as being withdrawn and therefore removing it from any API responses unless explicitly requested with the query parameter <code class="highlighter-rouge">includeWithdrawn=true</code></p>
+
+<h3 id="request-1">Request</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Reason": "Form created against wrong patient by mistake"
+}
+</code></pre></div></div>
+
+<h2 id="reinstate-a-form-instance">Reinstate a form instance</h2>
+<p><em>Route</em>: POST <code class="highlighter-rouge">/api/patientforms/{PatientId}/instance/{InstanceId}/reinstate</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">Reinstate</code><br />
+<em>Description</em>:  Marks a form instance and all its instance versions as being reinstated and therefore allowing it to be included in any API responses.</p>
+<h3 id="request-2">Request</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Reason": "Form withdrawn in error"
+}
+</code></pre></div></div>
+
 <h1 id="reporting-apis">Reporting APIs</h1>
 <p>The following APIs are used to extract data from forms4health for the purposes of reporting on persisted clinician forms. A report definition can be constructed to query forms4health for data at a form or building block level. The data is returned in JSON with a table (columns and rows) like structure.</p>
 
 <h3 id="form-level-data-extraction">Form level data extraction</h3>
 <p><em>Route</em>: POST <code class="highlighter-rouge">/reporting?format={format}</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">RunExtractsAndReports</code><br />
 <em>Description</em>: Returns data extracted using a report definition query <br />
 <em>Example</em>: <code class="highlighter-rouge">/reporting?format=google</code></p>
 
@@ -777,15 +802,8 @@ TODO -->
         "key": "smoking",
         "version": "1"                    
     }
-}]
+}] # Error handling and standard HTTP response codes
 </code></pre></div></div>
-
-<h3 id="submissions-count">Submissions Count</h3>
-<p><em>Route</em>: POST <code class="highlighter-rouge">/reporting/submissions-count?days={numberOfDays}</code><br />
-<em>Description</em>: Returns the number of form submissions in the past X number of days<br />
-<em>Example</em>: <code class="highlighter-rouge">/reporting/submissions-count?days=30</code></p>
-
-<h1 id="error-handling-and-standard-http-response-codes">Error handling and standard HTTP response codes</h1>
 
 <p>HTTP Response Codes are used per standard REST API design. However the most commonly used codes by forms4health are listed below.
 a
