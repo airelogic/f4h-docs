@@ -12,7 +12,7 @@ pipelines:
           - bundler --version
           - bundle install
           - JEKYLL_ENV=production bundle exec jekyll build -t
-          - bundle exec htmlproofer ./_site --url-ignore "/#.*/"
+          - bundle exec htmlproofer ./_site --url-ignore "/#.*/,/http://.*/,/https://.*/"
   branches:
     master:
       - step:
