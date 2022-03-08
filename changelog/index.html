@@ -142,6 +142,90 @@
                 
                 <div class="tm-timeline-entry">
                     <div class="tm-timeline-time">
+                        <h5>March 08, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.11.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(New Feature) Google sheet single pass delivery channel</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>March 02, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.10.2 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Bug fix) Fixed an issue where forms4health could not mark a token as used in AireToken</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>March 01, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.10.1 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Bug fix) Fixed an issue where the Annotated Image Upload control would not display the image the user had uploaded when no annoatations were made.</li>
+                            
+                            <li>(Bug fix) Fixed an issue where hint text was not been displayed for controls inside a single iteration repeat on small screen devices</li>
+                            
+                            <li>(Improvement) Numeric controls will now always display the full keyboard on mobile devices, this is due to certain mobile numeric keyboards not providing the user with a minus sign</li>
+                            
+                            <li>(Improvement) Extract definition API now correctly returns a 404 if the requested form or building block does not exist.</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>March 01, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.10.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(New Feature) [Extract API V2] (https://docs.forms4health.com/docs/extract-v2/)</li>
+                            
+                            <li>(New Feature) [Extract definition API] (https://docs.forms4health.com/docs/extract-v2/#extract-definition-apis)</li>
+                            
+                            <li>(New Feature) When requesting a PDF the banner can be removed by supplying `hideBanner=true` as a query param</li>
+                            
+                            <li>(Bug Fix) Fixed an issue where uploaded images that were then rotated ended up not been compressed correctly according to the control settings.</li>
+                            
+                            <li>(Bug Fix) Fixed an issue with the server side calc control losing its settings in the building block designer</li>
+                            
+                            <li>(Bug Fix) Fixed an issue with resetting a users password in the designer.</li>
+                            
+                            <li>(Bug Fix) Fixed an issue with the Scribble control displaying `-` even though the control has a value in form read view</li>
+                            
+                            <li>(Bug Fix) Prevent an issue where multiple versions of a form could be created if the submit button was clicked multiple times</li>
+                            
+                            <li>(Improvement) The building block designer now allows you to use the [round function](https://www.w3.org/TR/xpath-functions-31/#func-round) overload that allows you to specify the number of decimal places</li>
+                            
+                            <li>(Improvement) Numeric controls will now always display the numeric keyboard allowing users to use a decimal place</li>
+                            
+                            <li>(Improvement) Improve rendering performance when editing large sets of reference data</li>
+                            
+                            <li>(Improvement) Schema generation improvements</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
                         <h5>January 17, 2022</h5>
                     </div>
                     <div class="tm-timeline-body">
@@ -176,7 +260,7 @@
                             
                             <li>Optimised the bundle size</li>
                             
-                            <li>Removed redundanct usage of System.Drawing.Common</li>
+                            <li>Removed redundant usage of System.Drawing.Common</li>
                             
                             <li>Added tests to validate behaviour for duplicate reference data codes</li>
                             
