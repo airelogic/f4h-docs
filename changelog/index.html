@@ -142,6 +142,128 @@
                 
                 <div class="tm-timeline-entry">
                     <div class="tm-timeline-time">
+                        <h5>Oct 11, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.16.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Improvement) Various improvements to the new building block designer</li>
+                            
+                            <li>(Improvement) Further accessibility improvements to the forms</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>Sep 29, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.15.1 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Bug Fix) Fixed an issue where links in explanatory text and other form controls were not opening in a new tab</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>Sep 07, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.15.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(New Feature) A new building block designer has been released. The old Orbeon designer is still available via the "Legacy Designer" button if you run into any issues (Documentation will be updated in time!)</li>
+                            
+                            <li>(New Feature) Ability to refresh available building blocks when designing a form</li>
+                            
+                            <li>(New Feature) Add paging support to the <a href="https://docs.forms4health.com/docs/api/#get-form-instances-for-a-given-patient">Patient Forms Api</a></li>
+                            
+                            <li>(New Feature) Add filtering by correlationId on the <a href="https://docs.forms4health.com/docs/api/#get-form-instances-for-a-given-patient">Patient Forms Api</a></li>
+                            
+                            <li>(Bug Fix) Fixed an issue where form based extracts (v1 extracts) using max results was returning more results than expected</li>
+                            
+                            <li>(Improvement) Improvements to accessibility of the forms have been made</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>Sep 05, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.14.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(New Feature) Added support for pre-population based on correlationId.  This can be enabled via the pre-population settings in the form designer. When enabled pre-population will only populate from existing data saved against the provided correlationId</li>
+                            
+                            <li>(New Feature) Ability to export/import building block definitions from building block list</li>
+                            
+                            <li>(Improvement) Ability to mark reference data items as exclusive or configure a stop condition in the reference data page</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>Jul 22, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.13.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Bug Fix) Fixed an issue where reference data would allow a whitespace label</li>
+                            
+                            <li>(Improvement) Support sending the form title to the notification plugin</li>
+                            
+                            <li>(Improvement) When adding a new reference data item on the reference data page, it now suggests a default value based on the entered label</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>May 27, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.12.1 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Bug Fix) Fixed an issue when changing a building blocks relevance rule back to always display from custom in the form designer</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>May 24, 2022</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 5.12.0 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>(Bug Fix) Fixed a validation issue in the form designer when using an instance based XPath `instance('bb-a')/$control`</li>
+                            
+                            <li>(Bug Fix) Fixed an issue where you were unable to add new rows to itemsets in orbeon</li>
+                            
+                            <li>(Improvement) Improve available heading space in PDF</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
                         <h5>March 08, 2022</h5>
                     </div>
                     <div class="tm-timeline-body">
@@ -162,7 +284,7 @@
                         <h3>Version 5.10.2 <span class="uk-label"></span></h3>
                         <ul class="uk-list">
                             
-                            <li>(Bug fix) Fixed an issue where forms4health could not mark a token as used in AireToken</li>
+                            <li>(Bug Fix) Fixed an issue where forms4health could not mark a token as used in AireToken</li>
                             
                         </ul>
                     </div>
@@ -176,9 +298,9 @@
                         <h3>Version 5.10.1 <span class="uk-label"></span></h3>
                         <ul class="uk-list">
                             
-                            <li>(Bug fix) Fixed an issue where the Annotated Image Upload control would not display the image the user had uploaded when no annoatations were made.</li>
+                            <li>(Bug Fix) Fixed an issue where the Annotated Image Upload control would not display the image the user had uploaded when no annoatations were made.</li>
                             
-                            <li>(Bug fix) Fixed an issue where hint text was not been displayed for controls inside a single iteration repeat on small screen devices</li>
+                            <li>(Bug Fix) Fixed an issue where hint text was not been displayed for controls inside a single iteration repeat on small screen devices</li>
                             
                             <li>(Improvement) Numeric controls will now always display the full keyboard on mobile devices, this is due to certain mobile numeric keyboards not providing the user with a minus sign</li>
                             
@@ -1656,10 +1778,52 @@
                 
                 <div class="tm-timeline-entry">
                     <div class="tm-timeline-time">
-                        <h5>Oct 21, 2019</h5>
+                        <h5>Nov 21, 2019</h5>
                     </div>
                     <div class="tm-timeline-body">
                         <h3>Version 4.13.1 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>Fix for improved style checkboxes and radio buttons to manage wrapped text hanging indent</li>
+                            
+                            <li>Radio buttons + check box spacing too large on clinician facing forms layout</li>
+                            
+                            <li>Scribble control text in buttons seems to sink</li>
+                            
+                            <li>Very long single words can overflow their container in the read view</li>
+                            
+                            <li>Default stop condition text is not displayed instead "null" is displayed</li>
+                            
+                            <li>Rich text select in the GDS theme has the wrong selected item colour</li>
+                            
+                            <li>Scribble control allows you to undo past the edit stack which causes an error</li>
+                            
+                            <li>Wizard layout - Improvements to Next and Previous buttons</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>Oct 23, 2019</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 4.12.2 <span class="uk-label"></span></h3>
+                        <ul class="uk-list">
+                            
+                            <li>Resolving rece condition between auto save and submit</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tm-timeline-entry">
+                    <div class="tm-timeline-time">
+                        <h5>Oct 21, 2019</h5>
+                    </div>
+                    <div class="tm-timeline-body">
+                        <h3>Version 4.12.1 <span class="uk-label"></span></h3>
                         <ul class="uk-list">
                             
                             <li>New control variation - rich text select as accordian</li>
@@ -2039,19 +2203,6 @@
           
           
           <li class=""><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
-        
-        </ul>
-        
-        <h5 class="uk-margin-top">Manage Forms</h5>
-        <ul class="uk-nav uk-nav-default doc-nav">
-        
-          
-          
-          <li class=""><a href="/docs/create-and-manage-forms/">Create and Manage forms</a></li>
-        
-          
-          
-          <li class=""><a href="/docs/preview-and-test-forms/">Preview and test forms</a></li>
         
         </ul>
         
