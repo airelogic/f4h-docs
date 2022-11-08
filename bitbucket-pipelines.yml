@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ruby:2.4.0
+image: ruby:2.6.3
 
 pipelines:
   default:
@@ -12,7 +12,7 @@ pipelines:
           - bundler --version
           - bundle install
           - JEKYLL_ENV=production bundle exec jekyll build -t
-          - bundle exec htmlproofer ./_site --url-ignore "/#.*/,/http://.*/,/https://.*/"
+          - bundle exec htmlproofer ./_site --ignore-url "/#.*/,/http://.*/,/https://.*/"
   branches:
     master:
       - step:
@@ -20,7 +20,7 @@ pipelines:
             - bundler --version
             - bundle install
             - JEKYLL_ENV=production bundle exec jekyll build -t  --config _config.yml,_config-no-url.yml
-            - bundle exec htmlproofer ./_site --url-ignore "/#.*/,/http://.*/,/https://.*/"
+            - bundle exec htmlproofer ./_site --ignore-url "/#.*/,/http://.*/,/https://.*/"
             - JEKYLL_ENV=production bundle exec jekyll build -t
             - git clone https://github.com/airelogic/f4h-docs.git
             - cp -r /opt/atlassian/pipelines/agent/build/_site/* f4h-docs/
