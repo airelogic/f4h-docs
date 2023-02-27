@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Preview building blocks | forms4health documentation</title>
+<title>Client notifications | forms4health documentation</title>
 <meta name="generator" content="Jekyll v3.8.4" />
-<meta property="og:title" content="Preview building blocks" />
-<meta name="author" content="Lauren" />
+<meta property="og:title" content="Client notifications" />
+<meta name="author" content="Mark" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Before you import your building blocks into a form, you might want to preview the information and controls that you’ve added." />
-<meta property="og:description" content="Before you import your building blocks into a form, you might want to preview the information and controls that you’ve added." />
-<link rel="canonical" href="https://docs.forms4health.com/docs/preview-building-blocks/" />
-<meta property="og:url" content="https://docs.forms4health.com/docs/preview-building-blocks/" />
+<meta name="description" content="When forms4health is iframed into another application it will raise notification events to the parent window via postMessage. By listening to these events you can navigate away/close any modals after the user has finished with the form." />
+<meta property="og:description" content="When forms4health is iframed into another application it will raise notification events to the parent window via postMessage. By listening to these events you can navigate away/close any modals after the user has finished with the form." />
+<link rel="canonical" href="https://docs.forms4health.com/docs/client-notifications/" />
+<meta property="og:url" content="https://docs.forms4health.com/docs/client-notifications/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-02-27T11:18:20+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Preview building blocks" />
+<meta property="twitter:title" content="Client notifications" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lauren"},"dateModified":"2023-02-27T11:18:20+00:00","datePublished":"2023-02-27T11:18:20+00:00","description":"Before you import your building blocks into a form, you might want to preview the information and controls that you’ve added.","headline":"Preview building blocks","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/preview-building-blocks/"},"url":"https://docs.forms4health.com/docs/preview-building-blocks/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mark"},"dateModified":"2023-02-27T11:18:20+00:00","datePublished":"2023-02-27T11:18:20+00:00","description":"When forms4health is iframed into another application it will raise notification events to the parent window via postMessage. By listening to these events you can navigate away/close any modals after the user has finished with the form.","headline":"Client notifications","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/client-notifications/"},"url":"https://docs.forms4health.com/docs/client-notifications/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -157,7 +157,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
+                      <li class=""><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
                     
                     </ul>
                     
@@ -200,7 +200,7 @@
                     
                       
                       
-                      <li class=""><a href="/docs/client-notifications/">Client notifications</a></li>
+                      <li class="uk-active"><a href="/docs/client-notifications/">Client notifications</a></li>
                     
                     </ul>
                     
@@ -211,9 +211,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Preview building blocks</h1>
+                    <h1 class="uk-article-title">Client notifications</h1>
 
-                    <p class="subtitle uk-text-lead uk-text-muted">Preview building blocks before importing them into the Forms Editor</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -230,28 +230,21 @@
                     </div>
 
                     <div class="article-content">
-                        <p>Before you import your building blocks into a form, you might want to preview the information and controls that you’ve added.</p>
+                        <p>When forms4health is iframed into another application it will raise notification events to the parent window via <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">postMessage</a>.
+By listening to these events you can navigate away/close any modals after the user has finished with the form.</p>
 
-<ol>
-  <li>
-    <p>Go to the forms4health <em>Manage Building Blocks</em> tab.</p>
-  </li>
-  <li>
-    <p>Click on the <em>Import</em> box on the right hand side and select <em>Preview</em>. <img src="/assets/screenshots/previewbb/preview-building-block.png" alt="preview building block" /></p>
-  </li>
-  <li>
-    <p>From here, you can view your building block and test the data items by providing responses and clicking <em>Submit</em>. This will test your building block validation and provide a PDF output of the test responses.</p>
-  </li>
-</ol>
+<p>The following messages are available:</p>
 
-<p><img src="/assets/screenshots/previewbb/completed-building-block.png" alt="test building block" /></p>
-
-<p><img src="/assets/screenshots/previewbb/pdf-form-preview.png" alt="pdf preview" /></p>
-
+<ul>
+  <li><code class="highlighter-rouge">form-discarded</code> - Raised when the user clicks the discard button</li>
+  <li><code class="highlighter-rouge">form-closed</code> - Raised when the user clicks the close button</li>
+  <li><code class="highlighter-rouge">form-draft-saved</code> - Raised when the user clicks the save draft button</li>
+  <li><code class="highlighter-rouge">form-submitted</code> - Raised when the user clicks the submit button</li>
+</ul>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Preview building blocks&url=https://docs.forms4health.com/docs/preview-building-blocks/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.forms4health.com%2Fdocs%2Fpreview-building-blocks%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Client notifications&url=https://docs.forms4health.com/docs/client-notifications/&via=&related=" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.forms4health.com%2Fdocs%2Fclient-notifications%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
                     </div>
@@ -278,16 +271,35 @@
 
   
   
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
     <ul class="uk-pagination uk-margin-top">
           
             
             
-            <li><a class="hvr-back" href="/docs/add-basic-controls/">&larr; Previous</a></li>
+            <li><a class="hvr-back" href="/docs/extract-v2/">&larr; Previous</a></li>
           
           
-            
-            
-            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/advanced-features-of-forms4health-xpath/">Next &rarr;</a></li>
+
           
     </ul>
     
@@ -309,10 +321,6 @@
     
 
     
-        <li><a href="/docs/add-basic-controls/">Add Basic Controls</a></li>
-        
-        
-    
 
     
 
@@ -322,10 +330,6 @@
     
 
     
-        <li><a href="/docs/advanced-features-of-forms4health-xpath/">Rules and Logic</a></li>
-        
-        
-    
 
     
 
@@ -334,10 +338,6 @@
 
     
 
-    
-        <li><a href="/docs/api/">API</a></li>
-        
-        
     
 
     
@@ -357,10 +357,107 @@
     
 
     
-        <li><a href="/docs/building-block-designer-overview/">Building Block Designer Overview</a></li>
-        
-        
-            
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
     </ul>
 </div>
 
@@ -428,7 +525,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
+          <li class=""><a href="/docs/preview-building-blocks/">Preview building blocks</a></li>
         
         </ul>
         
@@ -471,7 +568,7 @@
         
           
           
-          <li class=""><a href="/docs/client-notifications/">Client notifications</a></li>
+          <li class="uk-active"><a href="/docs/client-notifications/">Client notifications</a></li>
         
         </ul>
         
