@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/api/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-02-27T11:18:20+00:00" />
+<meta property="article:published_time" content="2023-05-22T15:47:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2023-02-27T11:18:20+00:00","datePublished":"2023-02-27T11:18:20+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2023-05-22T15:47:00+00:00","datePublished":"2023-05-22T15:47:00+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -611,6 +611,96 @@ TODO -->
   <li><code class="highlighter-rouge">pageSize</code> along with <code class="highlighter-rouge">pageNumber</code></li>
   <li><code class="highlighter-rouge">correlationId</code></li>
 </ul>
+
+<h2 id="history-of-a-particular-form-instance">History of a particular form instance</h2>
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}/history/{instanceGuid}</code><br />
+<em>Permission</em>: <code class="highlighter-rouge">Create</code><br />
+<em>Description</em>:  Retrieves the history of an instance.</p>
+
+<h3 id="example-response">Example response</h3>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"compositeInstanceHistory"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"instanceVersionGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-05-22T15:39:39.2878379"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isEditMilestone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isCompleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"viewLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/patient/117536d8-9ef2-49d2-Ae9e-f5afb330c78f/instance/aa18b928-a4d5-4634-8d03-cc3a2b3a7543/version/aa18b928-a4d5-4634-8d03-cc3a2b3a7543/view"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"instanceVersionGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6ee55219-1e63-4f4f-83da-7e8077820c3d"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-05-22T15:39:45.3373301"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isEditMilestone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isCompleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"viewLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/patient/117536d8-9ef2-49d2-Ae9e-f5afb330c78f/instance/aa18b928-a4d5-4634-8d03-cc3a2b3a7543/version/6ee55219-1e63-4f4f-83da-7e8077820c3d/view"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"instanceVersionGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"62932da8-8d40-4e1a-9bc6-68240263107d"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-05-22T15:39:52.867569"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Draft"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isEditMilestone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isCompleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"viewLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/patient/117536d8-9ef2-49d2-Ae9e-f5afb330c78f/instance/aa18b928-a4d5-4634-8d03-cc3a2b3a7543/version/62932da8-8d40-4e1a-9bc6-68240263107d/view"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"instanceVersionGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec5f403e-5752-44bb-9ca4-d76375d3ef6a"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-05-22T15:40:02.33459"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isEditMilestone"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isCompleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deletedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"viewLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/patient/117536d8-9ef2-49d2-Ae9e-f5afb330c78f/instance/aa18b928-a4d5-4634-8d03-cc3a2b3a7543/version/ec5f403e-5752-44bb-9ca4-d76375d3ef6a/view"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"withdrawalHistory"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"withdrawalStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Withdrawn"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some reason"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"withdrawnByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"actionTakenDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-05-22T15:40:07.5327879"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aa18b928-a4d5-4634-8d03-cc3a2b3a7543"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"withdrawalStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reinstated"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some reason"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"withdrawnByUserIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"actionTakenDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-05-22T15:40:11.7514406"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div></div>
 
 <h2 id="create-form-instances-for-a-given-patient">Create form instances for a given patient</h2>
 <p><em>Route</em>: POST <code class="highlighter-rouge">/api/clinicianforms/create/</code><br />
