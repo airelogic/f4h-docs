@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/faq/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-05-22T15:47:00+00:00" />
+<meta property="article:published_time" content="2023-06-27T15:09:54+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="FAQ" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2023-05-22T15:47:00+00:00","datePublished":"2023-05-22T15:47:00+00:00","description":"Commonly used selectors, operators and functions","headline":"FAQ","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"url":"https://docs.forms4health.com/docs/faq/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2023-06-27T15:09:54+00:00","datePublished":"2023-06-27T15:09:54+00:00","description":"Commonly used selectors, operators and functions","headline":"FAQ","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/faq/"},"url":"https://docs.forms4health.com/docs/faq/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -493,6 +493,11 @@
       <td style="text-align: center"><code class="highlighter-rouge">round($raw-decimal * 10##) div 10##</code></td>
       <td style="text-align: left">Display a raw decimal value to a certain number of decimal places. When multiplied/divided by <code class="highlighter-rouge">10</code> this will give one decimal place, <code class="highlighter-rouge">100</code> will give two decimal places and so on. Note - this is not just formatting it affects the data.</td>
       <td style="text-align: left"><code class="highlighter-rouge"> round(($weight div ($height*$height))*100) div 100</code> returns a BMI in this case with two decimal place precision</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nf:other-value()</code></td>
+      <td style="text-align: left">From <code class="highlighter-rouge">7.4.0</code> - When a control is marked “with-other” we use a special value in the control.  This function returns that special value. This can then be used to see if a select has the option selected.</td>
+      <td style="text-align: left"><code class="highlighter-rouge">$single-select = nf:other-value()</code> or <code class="highlighter-rouge">nf:multi-select-values($multi-select) = nf:other-value()</code></td>
     </tr>
   </tbody>
 </table>
