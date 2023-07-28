@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/client-notifications/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-07-13T13:39:31+00:00" />
+<meta property="article:published_time" content="2023-07-28T09:36:33+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Client notifications" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mark"},"dateModified":"2023-07-13T13:39:31+00:00","datePublished":"2023-07-13T13:39:31+00:00","description":"When forms4health is iframed into another application it will raise notification events to the parent window via postMessage. By listening to these events you can navigate away/close any modals after the user has finished with the form.","headline":"Client notifications","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/client-notifications/"},"url":"https://docs.forms4health.com/docs/client-notifications/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mark"},"dateModified":"2023-07-28T09:36:33+00:00","datePublished":"2023-07-28T09:36:33+00:00","description":"When forms4health is iframed into another application it will raise notification events to the parent window via postMessage. By listening to these events you can navigate away/close any modals after the user has finished with the form.","headline":"Client notifications","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/client-notifications/"},"url":"https://docs.forms4health.com/docs/client-notifications/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -240,6 +240,7 @@ By listening to these events you can navigate away/close any modals after the us
   <li><code class="highlighter-rouge">form-closed</code> - Raised when the user clicks the close button</li>
   <li><code class="highlighter-rouge">form-draft-saved</code> - Raised when the user clicks the save draft button</li>
   <li><code class="highlighter-rouge">form-submitted</code> - Raised when the user clicks the submit button</li>
+  <li><code class="highlighter-rouge">form-keep-alive</code> - From 7.5.0 this is raised every 5 minutes if there has been any user interaction on the form</li>
 </ul>
 
                         <div class="share uk-text-center">
