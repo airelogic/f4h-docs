@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/api/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-03-04T09:50:04+00:00" />
+<meta property="article:published_time" content="2024-03-04T11:44:11+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-03-04T09:50:04+00:00","datePublished":"2024-03-04T09:50:04+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-03-04T11:44:11+00:00","datePublished":"2024-03-04T11:44:11+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -274,7 +274,7 @@
 <em>Description</em>: forms4health will (if available) launch the highest version form that has a <code class="highlighter-rouge">Production</code> publication status. For instance if there is a version 2 form in a status of <code class="highlighter-rouge">Production</code> and a version 3 form in a status of <code class="highlighter-rouge">Development</code> forms4health will serve the version 2 form. As soon as the version 3 form’s status is changed to <code class="highlighter-rouge">Production</code> it will be served via the versionless URL.<br />
 <em>Example</em>: <code class="highlighter-rouge">{tenantId}/SinglePass/dental-smile-assessment</code></p>
 
-<p>This feature is useful to allow forms to be upversioned with having to resend communications or change website links - i.e. allows the deploying organisation to make changes that are not externally disruptive.</p>
+<p>This feature is useful to allow forms to be upversioned without having to resend communications or change website links - i.e. allows the deploying organisation to make changes that are not externally disruptive.</p>
 
 <!-- ## Persisted Forms
 
