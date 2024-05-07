@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/api/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-04-30T15:10:38+00:00" />
+<meta property="article:published_time" content="2024-05-07T09:59:52+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-04-30T15:10:38+00:00","datePublished":"2024-04-30T15:10:38+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-05-07T09:59:52+00:00","datePublished":"2024-05-07T09:59:52+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -237,12 +237,6 @@
   <li><a href="#url-structure"><strong>Form Load URL Structure</strong></a></li>
   <li><a href="#form-template-apis"><strong>Form Template APIs</strong></a></li>
   <li><a href="#form-instance-apis"><strong>Form Instance APIs</strong></a></li>
-  <li><a href="#reporting-apis"><strong>Reporting APIs</strong></a>
-    <ul>
-      <li><a href="#form-level-data-extraction"><strong>Form level data extraction</strong></a></li>
-      <li><a href="#submissions-count"><strong>Submissions Count</strong></a></li>
-    </ul>
-  </li>
   <li><a href="#error-handling-and-standard-http-response-codes"><strong>Error handling and standard HTTP response codes</strong></a></li>
 </ul>
 
@@ -287,208 +281,215 @@ TODO -->
 <h1 id="form-template-apis">Form Template APIs</h1>
 <p>The following APIs are used by a wrapping application to dynamically decide which forms are available for use by users (with the correct permissions) and to provide complete structural and layout infomation of the a particular form template.</p>
 
-<h2 id="discover-what-non-persisted-style-form-templates-are-available-publised">Discover what non-persisted style form templates are available (publised)</h2>
+<h2 id="discover-what-non-persisted-style-form-templates-are-available-published">Discover what non-persisted style form templates are available (published)</h2>
 <p><em>Route</em>: GET <code class="highlighter-rouge">/{tenantId}/SinglePass/AvailableForms</code> <br />
 <em>Description</em>: Returns a list of forms that are marked as production
 <em>Example</em>: <code class="highlighter-rouge">/TEST01/SinglePass/AvailableForms</code></p>
+
 <h3 id="response">Response</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {
-        "name": "FGD Symptom Evaluation",
-        "key": "fgd-symptom-evaluation",
-        "versions": [
-            1,
-            2
-        ]
-    },
-    {
-        "name": "Patient Dental Smile Assessment",
-        "key": "dental-smile-assessment",
-        "versions": [
-            1
-        ]
-    }
-    ...
-]
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FGD Symptom Evaluation"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fgd-symptom-evaluation"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="mi">2</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient Dental Smile Assessment"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dental-smile-assessment"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">1</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="discover-what-persisted-form-style-templates-are-available-latest-version-and-published">Discover what persisted form style templates are available (latest version and published)</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/api/clinicianforms/availableForms</code> <br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/clinicianforms/availableForms</code> (Requires authentication)
 <em>Description</em>: Returns a list of forms limited to the latest creatable version that are marked as production (by default)</p>
+
 <h3 id="response-1">Response</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {
-        "key": "vte",
-        "title": "VTE Risk Assessment",
-        "classification": "Observation"
-    },
-    {
-        "key": "eolc",
-        "title": "End of Life Care Plan",
-        "classification": "Plans"
-    }
-    ...
-]
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vte"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VTE Risk Assessment"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Observation"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eolc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End of Life Care Plan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plans"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="discover-what-persisted-form-style-templates-are-available-published">Discover what persisted form style templates are available (published)</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/api/clinicianforms/allAvailableForms</code> <br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/clinicianforms/allAvailableForms</code> 
 <em>Description</em>: Returns a list of forms that are marked as production (by default)</p>
+
 <h3 id="response-2">Response</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {
-        "key": "eolc",
-        "versionNumber": 2,
-        "formTitle": "End of life care",
-        "allowAmend": false,
-        "classification": "Uncategorised",
-        "allowSaveDraft": true,
-        "autoSaveIntervalSeconds": 30,
-        "allowDiscard": false,
-        "allowRevoke": true
-    },
-    {
-        "key": "eolc",
-        "versionNumber": 1,
-        "formTitle": "End of life care",
-        "allowAmend": false,
-        "classification": "Uncategorised",
-        "allowSaveDraft": true,
-        "autoSaveIntervalSeconds": 30,
-        "allowDiscard": false,
-        "allowRevoke": true
-    }
-]
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eolc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"versionNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"formTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End of life care"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowAmend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uncategorised"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowSaveDraft"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"autoSaveIntervalSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowDiscard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowRevoke"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eolc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"versionNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"formTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End of life care"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowAmend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uncategorised"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowSaveDraft"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"autoSaveIntervalSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowDiscard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"allowRevoke"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="get-details-about-a-form-template">Get details about a form template</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/api/formdefinition/{formKey}/{formVersion}</code><br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/v2.0/tenant/{tenantKey}/formdefinition/{formKey}/{formVersion}</code><br />
 <em>Description</em>: Returns a JSON based representation of the entire form.<br />
-<em>Example</em>: <code class="highlighter-rouge">/api/formdefinition/bmi-reporting/1</code></p>
+<em>Example</em>: <code class="highlighter-rouge">/api/v2.0/tenant/demo/formdefinition/bmi-reporting/1</code></p>
 <h3 id="response-3">Response</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "key": "bmi-reporting",
-    "version": 1,
-    "title": "BMI Reporting",
-    "allowAmend": false,
-    "classification": "Uncategorised",
-    "allowSaveDraft": true,
-    "autoSaveInteval": 30,
-    "allowDiscard": false,
-    "allowRevoke": false,
-    "buildingBlocks": [
-        {
-            "key": "reporting-bmi",
-            "version": 1,
-            "xPath": "ReportingBmi",
-            "sections": [
-                {
-                    "id": "Section_weight_and_Height",
-                    "xPath": "Section_weight_and_Height",
-                    "controls": [
-                        {
-                            "id": "Unit_type",
-                            "xPath": "Unit_type",
-                            "dataType": "string",
-                            "label": "Unit type",
-                            "hint": "",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": "@displayName",
-                            "otherValueXPath": null
-                        },
-                        {
-                            "id": "Height_meters",
-                            "xPath": "Height_meters",
-                            "dataType": "decimal",
-                            "label": "Height (m)",
-                            "hint": "Height in meters - e.g. 1.81",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        },
-                        {
-                            "id": "Height_feet",
-                            "xPath": "Height_feet",
-                            "dataType": "decimal",
-                            "label": "Height (feet)",
-                            "hint": "e.g. 5",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        },
-                        {
-                            "id": "Height_inches",
-                            "xPath": "Height_inches",
-                            "dataType": "decimal",
-                            "label": "Height (inches)",
-                            "hint": "e.g. 11 or 11.25",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        },
-                        {
-                            "id": "Weight_kg",
-                            "xPath": "Weight_kg",
-                            "dataType": "decimal",
-                            "label": "Weight (kg)",
-                            "hint": "",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        },
-                        {
-                            "id": "Weight_pounds",
-                            "xPath": "Weight_pounds",
-                            "dataType": "decimal",
-                            "label": "Weight (pounds)",
-                            "hint": "",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        }
-                    ],
-                    "repeats": []
-                },
-                {
-                    "id": "Section_BMI",
-                    "xPath": "Section_BMI",
-                    "controls": [
-                        {
-                            "id": "BMI",
-                            "xPath": "BMI",
-                            "dataType": "decimal",
-                            "label": "BMI",
-                            "hint": "",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        },
-                        {
-                            "id": "Weight_appropriate",
-                            "xPath": "Weight_appropriate",
-                            "dataType": "string",
-                            "label": "Weight appropriate",
-                            "hint": "",
-                            "couldHaveValue": true,
-                            "couldHaveMultipleValues": false,
-                            "displayNameXPath": null,
-                            "otherValueXPath": null
-                        }
-                    ],
-                    "repeats": []
-                }
-            ]
-        }
-    ]
-}
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMI Reporting"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allowAmend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"classification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uncategorised"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allowSaveDraft"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"autoSaveInteval"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allowDiscard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"allowRevoke"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"buildingBlocks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reporting-bmi"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReportingBmi"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Section_weight_and_Height"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Section_weight_and_Height"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"controls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit_type"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit_type"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unit type"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@displayName"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height_meters"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height_meters"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decimal"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height (m)"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height in meters - e.g. 1.81"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height_feet"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height_feet"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decimal"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height (feet)"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e.g. 5"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height_inches"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height_inches"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decimal"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Height (inches)"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e.g. 11 or 11.25"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight_kg"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight_kg"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decimal"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight (kg)"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight_pounds"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight_pounds"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decimal"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight (pounds)"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"repeats"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Section_BMI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Section_BMI"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"controls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMI"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMI"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decimal"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMI"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight_appropriate"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"xPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight_appropriate"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"dataType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weight appropriate"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"hint"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"couldHaveMultipleValues"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"displayNameXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"otherValueXPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"repeats"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="get-details-about-the-un-persisted-data-format-when-used-in-conjunction-with-a-delivery-channel">Get details about the Un-persisted data format (when used in conjunction with a Delivery Channel)</h2>
 <p><em>Route</em>: GET <code class="highlighter-rouge">/api/v2.0/tenant/{tenantKey}/formschema/{formKey}/{version}</code><br />
@@ -496,6 +497,7 @@ TODO -->
 <em>Example</em>: <code class="highlighter-rouge">api/v2.0/tenant/demo/formschema/form-invite/1</code></p>
 
 <h3 id="response-4">Response</h3>
+
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;xsd:schema</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xmlns:xsd=</span><span class="s">"http://www.w3.org/2001/XMLSchema"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;xsd:simpleType</span> <span class="na">name=</span><span class="s">"xf-decimal"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;xsd:union&gt;</span>
@@ -552,68 +554,70 @@ TODO -->
 <p>These APIs are only applicable for forms4health deployments with associated persistence.</p>
 
 <h2 id="get-form-instances-by-instance-identifiers">Get form instances by instance identifiers</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms?instanceGuid={instanceGuid}</code><br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms?instanceGuid={instanceGuid}</code>  (Requires authentication)
 <em>Permission</em>: <code class="highlighter-rouge">ListPatientForms</code><br />
 <em>Description</em>:  Returns a list of all forms with the given instance identifiers<br />
 <em>Example</em>: <code class="highlighter-rouge">api/patientforms?instanceGuid=816eb663-cc1f-478d-8efe-5c068ec434f2&amp;instanceGuid=ba63eed3-5901-4cb0-a48a-955eab32abcf</code></p>
 
 <h3 id="response-5">Response</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {
-        "instanceGuid": "816eb663-cc1f-478d-8efe-5c068ec434f2",
-        "title": "End of Life Care Plan",
-        "createDateTimeUtc": "2020-01-09T16:41:34.813",
-        "lastModifiedDateTimeUtc": "2020-01-09T16:41:34.813",
-        "status": "Draft",
-        "isAmendable": true,
-        "key": "eolc",
-        "version": 1
-    },
-    {
-        "instanceGuid": "ba63eed3-5901-4cb0-a48a-955eab32abcf",
-        "title": "BMI Reporting",
-        "createDateTimeUtc": "2019-12-02T11:22:12.6",
-        "lastModifiedDateTimeUtc": "2019-12-02T11:22:32.297",
-        "status": "Complete",
-        "isAmendable": false,
-        "key": "bmi-reporting",
-        "version": 1
-    }
-    ...
-]
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"816eb663-cc1f-478d-8efe-5c068ec434f2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End of Life Care Plan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-09T16:41:34.813"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastModifiedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-09T16:41:34.813"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Draft"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isAmendable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eolc"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba63eed3-5901-4cb0-a48a-955eab32abcf"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMI Reporting"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-02T11:22:12.6"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"lastModifiedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-02T11:22:32.297"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"isAmendable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="get-form-instances-for-a-given-patient">Get form instances for a given patient</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}</code><br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}</code>   (Requires authentication)
 <em>Permission</em>: <code class="highlighter-rouge">ListPatientForms</code><br />
 <em>Description</em>:  Returns a list of all forms associated with the patientId<br />
 <em>Example</em>: <code class="highlighter-rouge">/api/patientforms/488edeAB-5e8F-4e50-9137-24e377cf9436</code></p>
 
 <h3 id="response-6">Response</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
-    {
-        "instanceGuid": "816eb663-cc1f-478d-8efe-5c068ec434f2",
-        "title": "End of Life Care Plan",
-        "createDateTimeUtc": "2020-01-09T16:41:34.813",
-        "lastModifiedDateTimeUtc": "2020-01-09T16:41:34.813",
-        "status": "Draft",
-        "isAmendable": true,
-        "key": "eolc",
-        "version": 1
-    },
-    {
-        "instanceGuid": "ba63eed3-5901-4cb0-a48a-955eab32abcf",
-        "title": "BMI Reporting",
-        "createDateTimeUtc": "2019-12-02T11:22:12.6",
-        "lastModifiedDateTimeUtc": "2019-12-02T11:22:32.297",
-        "status": "Complete",
-        "isAmendable": false,
-        "key": "bmi-reporting",
-        "version": 1
-    }
-    ...
-]
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"816eb663-cc1f-478d-8efe-5c068ec434f2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"End of Life Care Plan"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-09T16:41:34.813"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastModifiedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-09T16:41:34.813"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Draft"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isAmendable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eolc"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"instanceGuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba63eed3-5901-4cb0-a48a-955eab32abcf"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BMI Reporting"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-02T11:22:12.6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastModifiedDateTimeUtc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-02T11:22:32.297"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Complete"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isAmendable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bmi-reporting"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <p>From <code class="highlighter-rouge">5.15.0</code> you can now use the following filters sent as query params:*</p>
 <ul>
@@ -622,7 +626,7 @@ TODO -->
 </ul>
 
 <h2 id="history-of-a-particular-form-instance">History of a particular form instance</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}/history/{instanceGuid}</code><br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/api/patientforms/{patientId}/history/{instanceGuid}</code>   (Requires authentication)
 <em>Permission</em>: <code class="highlighter-rouge">Create</code><br />
 <em>Description</em>:  Retrieves the history of an instance.</p>
 
@@ -712,193 +716,43 @@ TODO -->
 </span></code></pre></div></div>
 
 <h2 id="create-form-instances-for-a-given-patient">Create form instances for a given patient</h2>
-<p><em>Route</em>: POST <code class="highlighter-rouge">/api/clinicianforms/create/</code><br />
+<p><em>Route</em>: POST <code class="highlighter-rouge">/api/clinicianforms/create/</code>  (Requires authentication)
 <em>Permission</em>: <code class="highlighter-rouge">Create</code><br />
 <em>Description</em>:  Create an instance of a form for a given patient</p>
 
 <h3 id="request">Request</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    PatientIdentifier: "a4847fd9-7da1-49da-b5f4-be278dba0730",
-    InstanceIdentifier: "70b9802a-c7d2-420c-bdc1-0a32b6d06c19",
-    FormKey: "end-of-life-care",
-    FormVersion: 1
-}
-</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"patientIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4847fd9-7da1-49da-b5f4-be278dba0730"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"instanceIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70b9802a-c7d2-420c-bdc1-0a32b6d06c19"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"formKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"end-of-life-care"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"formVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="withdraw-a-form-instance">Withdraw a form instance</h2>
-<p><em>Route</em>: DELETE <code class="highlighter-rouge">/api/patientforms/{PatientId}/instance/{InstanceId}/withdraw</code><br />
+<p><em>Route</em>: DELETE <code class="highlighter-rouge">/api/patientforms/{PatientId}/instance/{InstanceId}/withdraw</code>  (Requires authentication)
 <em>Permission</em>: <code class="highlighter-rouge">Withdraw</code><br />
 <em>Description</em>:  Marks a form instance and all its instance versions as being withdrawn and therefore removing it from any API responses unless explicitly requested with the query parameter <code class="highlighter-rouge">includeWithdrawn=true</code></p>
 
 <h3 id="request-1">Request</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "Reason": "Form created against wrong patient by mistake"
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Form created against wrong patient by mistake"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="reinstate-a-form-instance">Reinstate a form instance</h2>
-<p><em>Route</em>: PATCH <code class="highlighter-rouge">/api/patientforms/{PatientId}/instance/{InstanceId}/reinstate</code><br />
+<p><em>Route</em>: PATCH <code class="highlighter-rouge">/api/patientforms/{PatientId}/instance/{InstanceId}/reinstate</code>   (Requires authentication)
 <em>Permission</em>: <code class="highlighter-rouge">Reinstate</code><br />
 <em>Description</em>:  Marks a form instance and all its instance versions as being reinstated and therefore allowing it to be included in any API responses.</p>
 <h3 id="request-2">Request</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "Reason": "Form withdrawn in error"
-}
-</code></pre></div></div>
 
-<h1 id="reporting-apis">Reporting APIs</h1>
-<p>The following APIs are used to extract data from forms4health for the purposes of reporting on persisted clinician forms. A report definition can be constructed to query forms4health for data at a form or building block level. The data is returned in JSON with a table (columns and rows) like structure.</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Form withdrawn in error"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-<h3 id="form-level-data-extraction">Form level data extraction</h3>
-
-<p><strong>A new extract api is available from <code class="highlighter-rouge">5.10.0</code> which can be found <a href="../extract-v2">here</a></strong></p>
-
-<p><em>Route</em>: POST <code class="highlighter-rouge">/reporting?format={format}</code><br />
-<em>Permission</em>: <code class="highlighter-rouge">RunExtractsAndReports</code><br />
-<em>Description</em>: Returns data extracted using a report definition query <br />
-<em>Example</em>: <code class="highlighter-rouge">/reporting?format=google</code></p>
-
-<p>The format query parameter is optional and the currently only supported option is <code class="highlighter-rouge">google</code> which is for use in Google Charts, if not included data is returned in plain json with a columns and rows breakdown.</p>
-
-<p>In order to extract data from forms4health a reporting definition needs to be sent with the request, this definition can be thought of as a query, it also allows us to define which, form &amp; building blocks are included as well as limiting results to a date range and row count.</p>
-
-<h3 id="reporting-definition">Reporting definition</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "PatientIds": [
-        "488edeAB-5e8F-4e50-9137-24e377cf9436"
-    ],
-    "ReportDefinition": {
-        "type": "continuous",
-        "series": [{
-            "label": "Number of cigarettes per day",
-            "dataPointId": "number-per-day"
-        }, {
-            "label": "Smoker",
-            "dataPointId": "is-a-smoker"
-        }],
-        "extractDefinition": {
-            "type": "form",
-            "key": "smoking-assessment",
-            "version": "1",
-            "range": {
-                "from": "2020-01-01",
-                "to": "2020-06-30",
-                "maxResults": 100,
-                "maxResultsPerSubject": 10
-            },
-            "dataPoints": [{
-                "id":  "number-per-day",
-                "controlId": "number-per-day",
-                "buildingBlock": {
-                    "key": "smoking",
-                    "version": "1"                    
-                }
-            }, {
-                "id":  "is-a-smoker",
-                "controlId": "is-a-smoker",
-                "buildingBlock": {
-                    "key": "smoking",
-                    "version": "1"                    
-                }
-            }]
-        }
-    }
-}
-</code></pre></div></div>
-
-<p>To restrict the results to certain patients we can provide a list of required patient identifiers, if the value is ommitted data for all patients will be returned where that data exists.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"PatientIds": [
-    "488edeAB-5e8F-4e50-9137-24e377cf9436"
-]
-</code></pre></div></div>
-
-<p>There are two types of reports, discrete and continuous. Discrete data is that which is counted and cannot be divided, it can be plotted on a bar graph. Examples of discrete data are:</p>
-
-<p><code class="highlighter-rouge">Number of students</code><br />
-<code class="highlighter-rouge">Amount of money</code></p>
-
-<p>Continuous data is that which can be measured and can be dividied infinitely, it can be graphed on a histogram or line graph e.g.</p>
-
-<p><code class="highlighter-rouge">Weight of a patient</code><br />
-<code class="highlighter-rouge">Height of a patient</code><br />
-<code class="highlighter-rouge">Time it takes to run a mile</code></p>
-
-<p>We can set which data type we are using by setting <code class="highlighter-rouge">ReportDefinition.Type</code></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"ReportDefinition": {
-    "type": "continuous",
-</code></pre></div></div>
-
-<p>We can define the data series used in our report, the <code class="highlighter-rouge">label</code> field will control the name of the column returned and the <code class="highlighter-rouge">dataPointId</code> must match one of the data points defined in the extraction definition below.</p>
-
-<p>For continuous data we must provide an array of series objects</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"series": [{
-    "label": "Number of cigarettes per day",
-    "dataPointId": "number-per-day"
-}, {
-    "label": "Smoker",
-    "dataPointId": "is-a-smoker"
-}], 
-</code></pre></div></div>
-
-<p>For discrete data we must provide a single series object</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"series": {
-    "label": "Number of cigarettes per day",
-    "dataPointId": "number-per-day"
-}
-</code></pre></div></div>
-
-<p>The extract definition helps us build a query for extracting the data. We can extract data at form level with multiple building blocks or at an individual building block level. This example demonstrates form level extraction.</p>
-
-<p><code class="highlighter-rouge">type</code> = form or building-block<br />
-<code class="highlighter-rouge">key</code> = form name<br />
-<code class="highlighter-rouge">version</code> = form version</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"extractDefinition": {
-    "type": "form",
-    "key": "smoking-assessment",
-    "version": "1"
-</code></pre></div></div>
-
-<p>We can restrict the data returned to either a date range based on form submission date or a hard limit on the number of results</p>
-
-<p><code class="highlighter-rouge">maxResults</code> = limit the overall number of results<br />
-<code class="highlighter-rouge">maxResultsPerSubject</code> = limit number of results when data is partitioned by patient, building block name and version</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"range": {
-    "from": "2020-01-01",
-    "to": "2020-06-30",
-    "maxResults": 100,
-    "maxResultsPerSubject": 10
-},
-</code></pre></div></div>
-
-<p>We can define what data is actually returned as part of our report by providing an array of data points.</p>
-
-<p><code class="highlighter-rouge">id</code> = identifier for each data point<br />
-<code class="highlighter-rouge">controlId</code> = identifer for the control we wish to extract as defined in the building block<br />
-<code class="highlighter-rouge">buildingBlock.Key</code> = Name of the bulding block the control resides in<br />
-<code class="highlighter-rouge">buildingBlock.Version</code> = Which version of the building block to use</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"dataPoints": [{
-    "id":  "number-per-day",
-    "controlId": "number-per-day",
-    "buildingBlock": {
-        "key": "smoking",
-        "version": "1"                    
-    }
-}, {
-    "id":  "is-a-smoker",
-    "controlId": "is-a-smoker",
-    "buildingBlock": {
-        "key": "smoking",
-        "version": "1"                    
-    }
-}] # Error handling and standard HTTP response codes
-</code></pre></div></div>
+<h1 id="error-handling-and-standard-http-response-codes">Error handling and standard HTTP response codes</h1>
 
 <p>HTTP Response Codes are used per standard REST API design. However the most commonly used codes by forms4health are listed below.
 a
