@@ -9,6 +9,7 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
+          - gem install bundler:2.1.4
           - bundler --version
           - bundle install
           - JEKYLL_ENV=production bundle exec jekyll build -t
@@ -17,6 +18,7 @@ pipelines:
     master:
       - step:
           script:
+            - gem install bundler:2.1.4
             - bundler --version
             - bundle install
             - JEKYLL_ENV=production bundle exec jekyll build -t  --config _config.yml,_config-no-url.yml
