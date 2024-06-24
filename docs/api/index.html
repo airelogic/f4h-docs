@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/api/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-06-03T15:22:28+00:00" />
+<meta property="article:published_time" content="2024-06-24T07:56:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="API" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-06-03T15:22:28+00:00","datePublished":"2024-06-03T15:22:28+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Michael"},"dateModified":"2024-06-24T07:56:09+00:00","datePublished":"2024-06-24T07:56:09+00:00","description":"This page documents form launch URLs and other APIs of forms4health. Note: in any given deployment not all of these APIs will be availble or directly accessible. Likewise depending on the security model many of these APIs will require authentication and/or will be unavailable.","headline":"API","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/api/"},"url":"https://docs.forms4health.com/docs/api/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -245,16 +245,9 @@
 <h2 id="non-persisted">Non-persisted</h2>
 
 <h3 id="single-pass-forms">Single Pass Forms</h3>
-<p><em>Route</em>: GET <code class="highlighter-rouge">{tenantId}/SinglePass/{formKey}/{formVersion}/Load</code><br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">{tenantId}/SinglePass/{formKey}/{formVersion}</code><br />
 <em>Description</em>: Loads a <em>SinglePass</em> form for the associated tenant<br />
-<em>Example</em>: <code class="highlighter-rouge">{tenantId}/SinglePass/dental-smile-assessment/1/Load</code></p>
-
-<h3 id="single-pass-forms-customer-url">Single Pass Forms (customer URL)</h3>
-<p>Typically used in conjunction with a proxy server to provide seamless integration with CMS such as wordpress.<br />
-<em>Route</em>: GET <code class="highlighter-rouge">{organisation forms domain/subdomain}/forms/{formKey}/{formVersion}</code><br />
-<em>Description</em>: Loads a <em>SinglePass</em> form in the context of an organisation’s own domain name<br />
-<em>Example</em>: <code class="highlighter-rouge">https://forms.orgdomainname.com/forms/sick-note-request/1</code> - Sub-domained<br />
-<em>Example</em>: <code class="highlighter-rouge">https://gp-practices.co.uk/forms/sick-note-request/1</code> - Proxied</p>
+<em>Example</em>: <code class="highlighter-rouge">{tenantId}/SinglePass/dental-smile-assessment/1</code></p>
 
 <h3 id="single-pass-forms---versionless-url">Single Pass Forms - versionless URL</h3>
 <p>Typically used to provide a link that will be stable over a long time period. This link might be shared on email, SMS or be embedded in a website or used on a poster / QR code.</p>
@@ -277,7 +270,7 @@ TODO -->
 <p>The following APIs are used by a wrapping application to dynamically decide which forms are available for use by users (with the correct permissions) and to provide complete structural and layout infomation of the a particular form template.</p>
 
 <h2 id="discover-what-non-persisted-style-form-templates-are-available-published">Discover what non-persisted style form templates are available (published)</h2>
-<p><em>Route</em>: GET <code class="highlighter-rouge">/{tenantId}/SinglePass/AvailableForms</code> <br />
+<p><em>Route</em>: GET <code class="highlighter-rouge">/{tenantId}/SinglePass/AvailableForms</code>
 <em>Description</em>: Returns a list of forms that are marked as production
 <em>Example</em>: <code class="highlighter-rouge">/TEST01/SinglePass/AvailableForms</code></p>
 
