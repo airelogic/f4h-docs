@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.forms4health.com/docs/extract-v2/" />
 <meta property="og:site_name" content="forms4health documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-06-24T07:56:09+00:00" />
+<meta property="article:published_time" content="2024-06-25T13:47:35+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Extract API v2" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mark"},"dateModified":"2024-06-24T07:56:09+00:00","datePublished":"2024-06-24T07:56:09+00:00","description":"From version 5.10.0 of forms4health you can use V2 of the Extract API. The main new features for this version are as follows:","headline":"Extract API v2","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/extract-v2/"},"url":"https://docs.forms4health.com/docs/extract-v2/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Mark"},"dateModified":"2024-06-25T13:47:35+00:00","datePublished":"2024-06-25T13:47:35+00:00","description":"From version 5.10.0 of forms4health you can use V2 of the Extract API. The main new features for this version are as follows:","headline":"Extract API v2","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.forms4health.com/docs/extract-v2/"},"url":"https://docs.forms4health.com/docs/extract-v2/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.forms4health.com/assets/posts/"/>
@@ -1424,7 +1424,7 @@ The main new features for this version are as follows:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h5 id="partial-date">Partial date</h5>
+<h5 id="partial-date-750">Partial date (7.5.0)</h5>
 
 <table class="uk-table uk-table-striped">
   <thead>
@@ -1463,6 +1463,63 @@ The main new features for this version are as follows:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h5 id="translatable-text-control-920">Translatable Text Control (9.2.0)</h5>
+
+<table class="uk-table uk-table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">property</th>
+      <th style="text-align: left">type</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">originalText</td>
+      <td style="text-align: left"><code class="highlighter-rouge">string</code></td>
+      <td>The text entered by the person filling in the form</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">translatedText</td>
+      <td style="text-align: left"><code class="highlighter-rouge">string</code></td>
+      <td>The text translated by google translate</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">sourceLanguageCode</td>
+      <td style="text-align: left"><code class="highlighter-rouge">string</code></td>
+      <td>The two letter ISO code of the language detected by google translate</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">targetLanguageCode</td>
+      <td style="text-align: left"><code class="highlighter-rouge">string</code></td>
+      <td>The two letter ISO code of the target language configured by the tenant</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">translatedDateTime</td>
+      <td style="text-align: left"><code class="highlighter-rouge">date</code></td>
+      <td>The date and time the text was sent to google translate</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">repeatIterationIndex</td>
+      <td style="text-align: left"><code class="highlighter-rouge">number | null</code></td>
+      <td>This value will be null if the control was not in a repeat or will contain the iteration index in document order</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="example-13">Example</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"originalText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entered text"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"translatedText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"translated text"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sourceLanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"targetLanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"translatedDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-17T11:45:00.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"repeatIterationIndex"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"translatable-text-value"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <h2 id="subject-instance-extract-api">Subject instance extract api</h2>
 <p><em>Route</em>: <strong>GET</strong> <code class="highlighter-rouge">/api/v2.0/extract/subject/{subjectIdentifier}/instance/{instance:guid}</code><br />
 <em>Permission</em>: <code class="highlighter-rouge">RunExtractsAndReports</code></p>
@@ -1493,7 +1550,7 @@ The main new features for this version are as follows:</p>
   </tbody>
 </table>
 
-<h4 id="example-13">Example</h4>
+<h4 id="example-14">Example</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1515,7 +1572,7 @@ The main new features for this version are as follows:</p>
 
 <p>For schema see <a href="#form-extract-result">Form extract result</a></p>
 
-<h4 id="example-14">Example</h4>
+<h4 id="example-15">Example</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"subjectIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patientId"</span><span class="p">,</span><span class="w">
@@ -1661,6 +1718,7 @@ The main new features for this version are as follows:</p>
   <li>html</li>
   <li>data-url</li>
   <li>url</li>
+  <li>translatable-text-value</li>
 </ul>
 
 <h2 id="value-types">Value Types</h2>
@@ -1672,6 +1730,7 @@ The main new features for this version are as follows:</p>
   <li>multiple-selection</li>
   <li>geolocation</li>
   <li>annotated-image</li>
+  <li>translatable-text-value</li>
 </ul>
 
 <h2 id="value-type--data-type-mappings">Value type / Data type mappings</h2>
@@ -1707,6 +1766,10 @@ The main new features for this version are as follows:</p>
     <tr>
       <td style="text-align: left">annotated-image</td>
       <td style="text-align: left"><code class="highlighter-rouge">annotated-image</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">translatable-text-value</td>
+      <td style="text-align: left"><code class="highlighter-rouge">translatable-text-value</code></td>
     </tr>
   </tbody>
 </table>
